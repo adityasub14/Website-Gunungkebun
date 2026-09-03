@@ -1,0 +1,1571 @@
+/* =====================================================
+   RESET
+===================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Poppins, sans-serif;
+    color: #223127;
+    background: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    width: min(1160px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.top-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 5000;
+
+    background:
+        linear-gradient(
+            135deg,
+            #07751b,
+            #245b91
+        );
+
+    color: white;
+
+    box-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+
+.navbar-container {
+    width: min(1160px, calc(100% - 40px));
+
+    height: 70px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+/* =====================================================
+   BRAND
+===================================================== */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: white;
+}
+
+
+.brand-logo {
+    width: 42px;
+    height: 42px;
+    object-fit: cover;
+    border-radius:50%;
+    display: block;
+    overflow: hidden;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.brand-small {
+    font-size: 11px;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    margin-bottom: 1px;
+}
+
+
+.brand-text strong {
+    font-size: 15px;
+    line-height: 1.2;
+    letter-spacing: 0.2px;
+}
+
+
+/* =====================================================
+   NAVBAR RIGHT
+===================================================== */
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+
+.data-status {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    font-size: 12px;
+
+    color: rgba(255, 255, 255, 0.82);
+
+    white-space: nowrap;
+}
+
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #59b968;
+
+    animation: statusPulse 1.8s infinite;
+}
+
+
+@keyframes statusPulse {
+
+    0% {
+        box-shadow:
+            0 0 0 0 rgba(89, 185, 104, 0.5);
+    }
+
+    70% {
+        box-shadow:
+            0 0 0 7px rgba(89, 185, 104, 0);
+    }
+
+    100% {
+        box-shadow:
+            0 0 0 0 rgba(89, 185, 104, 0);
+    }
+
+}
+
+
+/* =====================================================
+   MENU TOGGLE
+===================================================== */
+
+/* =====================================================
+   LIGHT / DARK MODE
+===================================================== */
+
+.theme-toggle {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.08);
+    color: rgb(255, 255, 255);
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.theme-icon {
+    font-size: 20px;
+    line-height: 1;
+
+    transition:
+        transform 0.3s ease;
+}
+
+.theme-toggle:active .theme-icon {
+    transform: rotate(25deg) scale(0.9);
+}
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark-mode {
+    color: #e8eee9;
+    background: #101713;
+}
+
+
+/* SECTION */
+
+body.dark-mode .section {
+    background: #101713;
+}
+
+body.dark-mode .section-gray {
+    background: #151d18;
+}
+
+
+/* JUDUL */
+
+body.dark-mode .section-header h2,
+body.dark-mode .about h2 {
+    color: #edf4ee;
+}
+
+
+/* SEARCH PANEL */
+
+body.dark-mode .search-panel {
+    background: #19231d;
+    border-color: #2d3a31;
+}
+
+
+/* LABEL */
+
+body.dark-mode .field label {
+    color: #d6dfd8;
+}
+
+
+/* SELECT */
+
+body.dark-mode .field select {
+    background: #111813;
+    color: #e7eee9;
+    border-color: #35443a;
+}
+
+body.dark-mode .field select:disabled {
+    background: #202a24;
+    color: #7f8b83;
+}
+
+
+/* HASIL */
+
+body.dark-mode .price-result-box {
+    background: #19231d;
+    border-color: #2d3a31;
+}
+
+body.dark-mode .price-result-label,
+body.dark-mode .price-result-unit {
+    color: #9eaaa2;
+}
+
+body.dark-mode .price-result-number {
+    color: #78c98b;
+}
+
+body.dark-mode .price-result-info {
+    border-color: #344139;
+    color: #9eaaa2;
+}
+
+body.dark-mode .price-result-info strong {
+    color: #edf4ee;
+}
+
+body.dark-mode .price-result-info span:first-of-type {
+    color: #b4c0b8;
+}
+
+
+/* EMPTY STATE */
+
+body.dark-mode .empty-state {
+    background: #19231d;
+    border-color: #35443a;
+}
+
+body.dark-mode .empty-state strong {
+    color: #e8eee9;
+}
+
+body.dark-mode .empty-state p {
+    color: #9ba79f;
+}
+
+
+/* ABOUT */
+
+body.dark-mode .about-text p {
+    color: #aeb9b1;
+}
+
+
+/* NOTICE */
+
+body.dark-mode .notice {
+    background: #1b2820;
+    border-left-color: #4c9a61;
+}
+
+body.dark-mode .notice strong {
+    color: #e5eee7;
+}
+
+body.dark-mode .notice p {
+    color: #aeb9b1;
+}
+
+
+/* TRANSISI */
+
+body,
+.section,
+.section-gray,
+.search-panel,
+.price-result-box,
+.empty-state,
+.field select,
+.notice {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* =====================================================
+   MENU PANEL
+===================================================== */
+
+.menu-panel {
+    position: absolute;
+
+    top: 96px;
+
+    right: max(
+        20px,
+        calc((100vw - 1160px) / 2)
+    );
+
+    width: 300px;
+
+    background: white;
+
+    border: 1px solid #dfe5df;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.18);
+
+    padding: 8px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(-8px);
+
+    transition: 0.2s ease;
+
+    z-index: 6000;
+}
+
+
+.menu-panel.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+.menu-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.menu-item {
+    display: flex;
+
+    align-items: center;
+
+    padding: 20px 24px;
+
+    border-radius: 16px;
+
+    color: #26382c;
+
+    transition: 0.2s ease;
+}
+
+
+.menu-item:hover {
+    background: #f1f6f2;
+}
+
+
+.menu-item strong {
+    display: block;
+
+    font-size: 18px;
+
+    margin-bottom: 5px;
+}
+
+
+.menu-item small {
+    display: block;
+
+    color: #7b857e;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+  HERO
+===================================================== */
+
+.hero {
+    position: relative;
+
+    min-height: 525px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0d351d 0%,
+            #123d22 42%,
+            #174d2a 100%
+        );
+
+    color: white;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+/* =====================================================
+  FOTO GUNUNG — SISI KIRI
+===================================================== */
+
+.hero-image {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 57%;
+    height: 100%;
+
+    z-index: 1;
+
+    overflow: hidden;
+}
+
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center center;
+
+    display: block;
+
+    /*
+       BLEND KE KANAN
+    */
+
+    -webkit-mask-image:
+        linear-gradient(
+            to right,
+            black 0%,
+            black 58%,
+            transparent 100%
+        );
+
+    mask-image:
+        linear-gradient(
+            to right,
+            black 0%,
+            black 58%,
+            transparent 100%
+        );
+}
+
+
+/* =====================================================
+  GRADIENT TAMBAHAN FOTO
+===================================================== */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            to right,
+            rgba(13, 53, 29, 0) 0%,
+            rgba(13, 53, 29, 0.05) 25%,
+            rgba(13, 53, 29, 0.45) 43%,
+            rgba(13, 53, 29, 0.92) 59%,
+            #0d351d 72%,
+            #0d351d 100%
+        );
+}
+
+
+/* =====================================================
+  HERO CONTENT
+===================================================== */
+
+.hero-inner {
+    position: relative;
+
+    z-index: 3;
+
+    width: min(1160px, calc(100% - 40px));
+
+    margin: 0 auto;
+
+    min-height: 525px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+}
+
+
+/* =====================================================
+  HERO TEXT — KANAN
+===================================================== */
+
+.hero-text {
+    width: 52%;
+
+    margin-left: auto;
+
+    padding-left: 70px;
+
+    text-align:right
+}
+
+
+.small-label {
+    font-size: 11px;
+
+    letter-spacing: 1.7px;
+
+    font-weight: 700;
+
+    color: #a6cdb0;
+
+    margin-bottom: 14px;
+}
+
+
+.hero h1 {
+    max-width: 700px;
+
+    font-size: clamp(
+        38px,
+        4vw,
+        56px
+    );
+
+    line-height: 1.08;
+
+    font-weight: 700;
+
+    margin-bottom: 22px;
+}
+
+
+.hero h1 span {
+    display: block;
+
+    color: #acd6b5;
+}
+
+
+.hero-text > p {
+    max-width: 650px;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    color: #d6e5da;
+}
+
+
+/* =====================================================
+  MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .hero {
+        min-height: 600px;
+
+        display: block;
+    }
+
+
+    .hero-image {
+        width: 100%;
+
+        height: 100%;
+
+        opacity: 0.65;
+    }
+
+
+    .hero-image img {
+
+        -webkit-mask-image:
+            linear-gradient(
+                to bottom,
+                black 0%,
+                black 45%,
+                transparent 100%
+            );
+
+        mask-image:
+            linear-gradient(
+                to bottom,
+                black 0%,
+                black 45%,
+                transparent 100%
+            );
+
+    }
+
+
+    .hero::after {
+        background:
+            linear-gradient(
+                to bottom,
+                rgba(13, 53, 29, 0.05) 0%,
+                rgba(13, 53, 29, 0.45) 40%,
+                #0d351d 82%,
+                #0d351d 100%
+            );
+    }
+
+
+    .hero-inner {
+        min-height: 600px;
+
+        width: calc(100% - 28px);
+
+        display: flex;
+
+        align-items: flex-end;
+
+        justify-content: flex-start;
+
+        padding-bottom: 55px;
+    }
+
+
+    .hero-text {
+        width: 100%;
+
+        padding-left: 0;
+
+        margin-left: 0;
+    }
+
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+
+    .hero-text > p {
+        font-size: 14px;
+    }
+
+}
+
+
+/* =====================================================
+  HP KECIL
+===================================================== */
+
+@media (max-width: 420px) {
+
+    .hero {
+        min-height: 560px;
+    }
+
+
+    .hero-inner {
+        min-height: 560px;
+    }
+
+
+    .hero h1 {
+        font-size: 29px;
+    }
+
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.button {
+    min-height: 42px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0 18px;
+
+    border-radius: 6px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    border: 1px solid transparent;
+
+    transition: 0.2s;
+}
+
+
+.button-primary {
+    background: #19552d;
+
+    color: white;
+}
+
+
+.hero .button-primary {
+    background: white;
+
+    color: #19552d;
+}
+
+
+
+.button-secondary {
+    border-color:
+        rgba(255, 255, 255, 0.35);
+
+    color: white;
+}
+
+
+.button-secondary:hover {
+    background:
+        rgba(255, 255, 255, 0.08);
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.section {
+    padding: 75px 0;
+}
+
+
+.section-gray {
+    background: #f5f7f4;
+}
+
+
+.section-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    gap: 40px;
+
+    margin-bottom: 28px;
+}
+
+
+.section-header h2 {
+    font-size: 30px;
+
+    line-height: 1.2;
+
+    font-weight: 700;
+}
+
+
+.section-header > p {
+    max-width: 400px;
+
+    font-size: 14px;
+
+    color: #68736c;
+}
+
+
+/* =====================================================
+   SEARCH PANEL
+===================================================== */
+
+.search-panel {
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr
+        auto;
+
+    gap: 20px;
+
+    align-items: end;
+
+    background: white;
+
+    border: 1px solid #dfe5df;
+
+    padding: 20px;
+
+    border-radius: 10px;
+}
+
+
+.field {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+
+.field label {
+    font-size: 12px;
+
+    font-weight: 700;
+
+    color: #39443c;
+}
+
+
+.field select {
+    height: 42px;
+
+    padding: 0 11px;
+
+    border: 1px solid #d5ddd5;
+
+    border-radius: 6px;
+
+    background: white;
+
+    color: #26322a;
+
+    outline: none;
+
+    font-size: 13px;
+}
+
+
+.field select:focus {
+    border-color: #27713d;
+}
+
+
+.field select:disabled {
+    background: #f3f5f3;
+
+    color: #929b95;
+
+    cursor: not-allowed;
+}
+
+
+.search-button {
+    background: #19552d;
+
+    color: white;
+}
+
+
+.search-button:hover {
+    background: #123f21;
+}
+
+
+/* =====================================================
+   HASIL HARGA
+===================================================== */
+
+.hasil-harga {
+    margin-top: 18px;
+}
+
+
+.price-result-box {
+    display: grid;
+
+    grid-template-columns:
+        1.2fr
+        0.8fr;
+
+    gap: 30px;
+
+    background: white;
+
+    border: 1px solid #dfe5df;
+
+    border-radius: 10px;
+
+    padding: 30px;
+
+    animation: resultAppear 0.25s ease;
+}
+
+
+@keyframes resultAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+.price-result-label {
+    font-size: 12px;
+
+    color: #68736c;
+
+    margin-bottom: 8px;
+}
+
+
+.price-result-number {
+    font-size: 38px;
+
+    font-weight: 700;
+
+    color: #19552d;
+
+    line-height: 1.2;
+}
+
+
+.price-result-unit {
+    font-size: 13px;
+
+    color: #68736c;
+
+    margin-top: 5px;
+}
+
+
+/* =====================================================
+   BADGE STATUS DATA HARGA
+===================================================== */
+
+.status-badge {
+    display: inline-block;
+
+    margin-top: 14px;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.2px;
+}
+
+.status-badge--verifikasi {
+    background: #e4f3e7;
+    color: #19552d;
+}
+
+.status-badge--estimasi {
+    background: #fbeecf;
+    color: #9a6a00;
+}
+
+body.dark-mode .status-badge--verifikasi {
+    background: rgba(89, 185, 104, 0.16);
+    color: #78c98b;
+}
+
+body.dark-mode .status-badge--estimasi {
+    background: rgba(214, 158, 46, 0.16);
+    color: #e0b95c;
+}
+
+
+/* =====================================================
+   PERINGATAN DATA USANG
+===================================================== */
+
+.price-warning {
+    margin-top: 12px;
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+
+    background: #fdf1e8;
+    color: #a15c00;
+
+    font-size: 11.5px;
+    line-height: 1.4;
+}
+
+body.dark-mode .price-warning {
+    background: rgba(214, 120, 46, 0.14);
+    color: #e2a15c;
+}
+
+
+.price-result-info {
+    border-left: 1px solid #e3e8e3;
+
+    padding-left: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    font-size: 12px;
+
+    color: #68736c;
+}
+
+
+.price-result-info strong {
+    color: #17231b;
+
+    font-size: 18px;
+}
+
+
+.price-result-info span:first-of-type {
+    color: #526058;
+}
+
+
+/* =====================================================
+   EMPTY STATE
+===================================================== */
+
+.empty-state {
+    border: 1px dashed #cbd4cc;
+
+    border-radius: 10px;
+
+    padding: 38px;
+
+    text-align: center;
+
+    background: white;
+}
+
+
+.empty-state strong {
+    display: block;
+
+    font-size: 14px;
+
+    margin-bottom: 4px;
+}
+
+
+.empty-state p {
+    font-size: 13px;
+
+    color: #778079;
+}
+
+
+/* =====================================================
+   AJAKAN LAPOR HARGA (CTA)
+===================================================== */
+
+.lapor-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin-top: 16px;
+
+    padding: 14px 20px;
+
+    border-radius: 10px;
+
+    background: #eef6ef;
+
+    font-size: 13px;
+
+    color: #33473a;
+}
+
+.lapor-cta a,
+.lapor-link {
+    color: #19552d;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.lapor-cta a:hover,
+.lapor-link:hover {
+    text-decoration: underline;
+}
+
+.lapor-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+body.dark-mode .lapor-cta {
+    background: rgba(89, 185, 104, 0.1);
+    color: #cfe6d4;
+}
+
+body.dark-mode .lapor-cta a,
+body.dark-mode .lapor-link {
+    color: #78c98b;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about {
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 70px;
+}
+
+
+.about h2 {
+    max-width: 480px;
+
+    font-size: 31px;
+
+    line-height: 1.2;
+}
+
+
+.about-text p {
+    font-size: 14px;
+
+    color: #626c65;
+
+    margin-bottom: 17px;
+}
+
+
+.notice {
+    background: #f2f5f1;
+
+    border-left:
+        3px solid #317447;
+
+    padding: 15px;
+
+    margin-top: 20px;
+}
+
+
+/* =====================================================
+   TOMBOL LAPOR DI SECTION TENTANG
+===================================================== */
+
+.about-lapor-button {
+    margin-top: 20px;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+}
+
+
+.notice strong {
+    font-size: 13px;
+}
+
+
+.notice p {
+    margin-top: 4px;
+
+    margin-bottom: 0;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    background: #133c1f;
+    color: white;
+    padding: 30px 0;
+}
+
+
+/* =====================================================
+   FOOTER KIRI
+===================================================== */
+
+.footer-inner > div:first-child {
+    max-width: 300px;
+}
+
+
+.footer-inner p {
+    margin-top: 4px;
+    max-width: 400px;
+    color: #aab6ad;
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   CREATOR — PALING KANAN
+===================================================== */
+
+.footer-creator {
+    text-align: left;
+    margin-left: auto;
+}
+
+.creator-label {
+    display: block;
+    font-size: 10px;
+    color: #829088;
+    margin-bottom: 7px;
+}
+
+.creator-profile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 9px;
+}
+
+.creator-photo {
+    width: 38px;
+    height: 38px;
+
+    object-fit: cover;
+    border-radius: 50%;
+
+    border: 1px solid #46624e;
+
+    flex-shrink: 0;
+}
+
+.creator-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.creator-info strong {
+    font-size: 12px;
+    color: white;
+}
+
+.creator-info a {
+    margin-top: 1px;
+    font-size: 10px;
+    color: #a9c8b1;
+}
+
+.creator-info a:hover {
+    color: white;
+}
+
+/* =====================================================
+   COPYRIGHT — TENGAH
+===================================================== */
+
+.footer-bottom {
+    width: min(1160px, calc(100% - 40px));
+
+    margin: 25px auto 0;
+
+    padding-top: 17px;
+
+    border-top: 1px solid rgba(255,255,255,0.1);
+
+    color: #78857c;
+    font-size: 10px;
+
+    text-align: center;
+}
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 850px) {
+
+    .search-panel {
+        grid-template-columns:
+            1fr
+            1fr;
+    }
+
+    .search-button {
+        width: 100%;
+    }
+
+    .price-result-box {
+        grid-template-columns: 1fr;
+    }
+
+    .price-result-info {
+        border-left: none;
+
+        border-top: 1px solid #e3e8e3;
+
+        padding-left: 0;
+
+        padding-top: 20px;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .container {
+        width: calc(100% - 28px);
+    }
+
+
+    .navbar-container {
+        width: calc(100% - 24px);
+
+        height: 70px;
+    }
+
+
+    .brand-text strong {
+        font-size: 16px;
+    }
+
+
+    .brand-logo {
+        width: 40px;
+
+        height: 40px;
+
+        font-size: 20px;
+    }
+
+
+    .data-status {
+        display: none;
+    }
+
+
+    .menu-panel {
+        top: 76px;
+
+        left: 12px;
+
+        right: 12px;
+
+        width: auto;
+
+        min-width: 0;
+    }
+
+
+    .hero {
+        padding: 60px 0;
+    }
+
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+
+    .hero-actions a {
+        width: 100%;
+    }
+
+
+    .section {
+        padding: 55px 0;
+    }
+
+
+    .section-header {
+        display: block;
+    }
+
+
+    .section-header > p {
+        margin-top: 10px;
+    }
+
+
+    .section-header h2 {
+        font-size: 25px;
+    }
+
+
+    .search-panel {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+
+    .search-button {
+        width: 100%;
+    }
+
+
+    .price-result-box {
+        padding: 22px;
+    }
+
+
+    .price-result-number {
+        font-size: 31px;
+    }
+
+
+    .footer-inner {
+        display: block;
+    }
+
+
+    .footer-creator {
+        margin-top: 25px;
+
+        text-align: left;
+    }
+
+
+    .creator-profile {
+        justify-content: flex-start;
+    }
+
+}
+
+
+/* =====================================================
+   HP KECIL
+===================================================== */
+
+@media (max-width: 420px) {
+
+    .brand-text strong {
+        font-size: 14px;
+    }
+
+
+    .hero h1 {
+        font-size: 29px;
+    }
+
+}

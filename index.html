@@ -1,0 +1,474 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GunungKebun.com — Informasi Harga Jual TBS</title>
+
+    <meta
+        name="description"
+        content="GunungKebun.com menyediakan informasi harga jual TBS berdasarkan provinsi, kabupaten, dan kecamatan."
+    >
+    
+    <link rel="stylesheet" href="gngkebun.css">
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="top-navbar">
+
+    <div class="navbar-container">
+
+        <a href="#" class="brand">
+
+
+    <div class="brand">
+
+    <img
+        src="logo2.jpeg"
+        alt="Logo Gunungkebun"
+        class="brand-logo"
+    >
+
+    <div class="brand-text">
+        <strong>GunungKebun.com</strong>
+    </div>
+
+</div>
+
+</a>
+
+
+        <div class="navbar-right">
+
+            <div class="data-status">
+
+                <span class="status-dot"></span>
+
+                <span>
+                    Update
+                </span>
+
+            </div>
+
+
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Aktifkan dark mode"
+                title="Light / Dark Mode"
+            >
+
+                 <span class="theme-icon" id="themeIcon">☾</span>
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- MENU -->
+
+    <div
+        class="menu-panel"
+        id="menuPanel"
+    >
+
+        <nav class="menu-list">
+
+            <a
+                href="#cek-harga"
+                class="menu-item"
+            >
+
+                <div>
+
+                    <strong>
+                        Cek Harga Jual TBS
+                    </strong>
+
+                    <small>
+                        Lihat harga berdasarkan wilayah
+                    </small>
+
+                </div>
+
+            </a>
+
+
+            <a
+                href="#tentang"
+                class="menu-item"
+            >
+
+                <div>
+
+                    <strong>
+                        Tentang GunungKebun
+                    </strong>
+
+                    <small>
+                        Mengenal platform GunungKebun
+                    </small>
+
+                </div>
+
+            </a>
+
+
+            <a
+                href="#footer"
+                class="menu-item"
+            >
+
+                <div>
+
+                    <strong>
+                        Informasi
+                    </strong>
+
+                    <small>
+                        Informasi dan sumber data
+                    </small>
+
+                </div>
+
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <!-- FOTO GUNUNG -->
+    <div class="hero-image">
+        <img
+            src="gunungfoto.jpeg"
+            alt="Pemandangan Gunung"
+        >
+    </div>
+
+    <!-- TEKS HERO -->
+    <div class="container hero-inner">
+
+        <div class="hero-text">
+
+            <div class="small-label">
+                INFORMASI PERKEBUNAN SWADAYA
+            </div>
+
+            <h1>
+                Harga Jual TBS
+                <span>
+                    Setiap Wilayah
+                </span>
+            </h1>
+
+            <p>
+                Lihat harga jual Tandan Buah Segar (TBS)<br>
+                Kelapa Sawit terbaru<br>
+                di Indonesia
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CEK HARGA JUAL TBS
+===================================================== -->
+
+<section
+    class="section"
+    id="cek-harga"
+>
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div>
+
+
+                <h2>
+                    Pilih Wilayah
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <!-- SEARCH PANEL -->
+
+        <div class="search-panel">
+
+
+            <!-- PROVINSI -->
+
+            <div class="field">
+
+                <label for="provinsi">
+                    Provinsi
+                </label>
+
+                <select id="provinsi">
+
+
+                </select>
+
+            </div>
+
+
+            <!-- KABUPATEN -->
+
+            <div class="field">
+
+                <label for="kabupaten">
+                    Kabupaten / Kota
+                </label>
+
+                <select
+                    id="kabupaten"
+                    disabled
+                >
+
+                    <option value="">
+                        Pilih kabupaten
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- KECAMATAN -->
+
+            <div class="field">
+
+                <label for="kecamatan">
+                    Kecamatan
+                </label>
+
+                <select
+                    id="kecamatan"
+                    disabled
+                >
+
+                    <option value="">
+                        Pilih kecamatan
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- BUTTON -->
+
+            <button
+                type="button"
+                id="cekHarga"
+                class="button search-button"
+            >
+                Cek Harga
+            </button>
+
+        </div>
+
+
+        <!-- HASIL -->
+
+        <div
+            id="hasilHarga"
+            class="hasil-harga"
+        >
+
+            <div class="empty-state">
+
+                <strong>
+                    Belum ada wilayah yang dipilih
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TENTANG
+===================================================== -->
+
+<section
+    class="section section-gray"
+    id="tentang"
+>
+
+    <div class="container">
+
+        <div class="about">
+
+            <div>
+
+                <div class="small-label">
+                    TENTANG
+                </div>
+
+                <h2>
+                    Platform Informasi Harga Jual<br>
+                    Hasil Perkebunan Swadaya
+                </h2>
+
+            </div>
+
+
+            <div class="about-text">
+
+                <p>
+                    GunungKebun.com merupakan platform informasi yang membantu
+                    petani kelapa sawit swadaya memperoleh informasi mengenai
+                    harga jual Tandan Buah Segar (TBS) di berbagai wilayah di
+                    Indonesia.
+                </p>
+
+                <p>
+                    Informasi harga disajikan berdasarkan wilayah, mulai dari
+                    provinsi, kabupaten/kota, hingga kecamatan, sehingga
+                    petani dapat mengetahui gambaran harga TBS yang berlaku
+                    di wilayahnya.
+                </p>
+
+                <p>
+                    GunungKebun dikembangkan untuk membantu memberikan
+                    informasi harga yang lebih mudah diakses dan menjadi
+                    referensi bagi petani sebelum menjual hasil kebunnya.
+                </p>
+
+                <p>
+                    Sebagian data harga di GunungKebun diverifikasi langsung
+                    oleh tim kami, dan sebagian lagi berasal dari Partisipasi
+                    petani dan masyarakat serta pengepul di berbagai daerah. Jika anda tahu
+                    harga TBS terbaru di wilayahmu juga bisa ikut
+                    berkontribusi — semakin banyak yang Partisipasi, semakin
+                    lengkap dan akurat informasi yang bisa kami sajikan.
+                </p>
+
+                <a
+                    id="linkLaporTentang"
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                    class="button button-primary about-lapor-button"
+                >
+                    Laporkan Harga TBS di Daerahmu
+                </a>
+
+
+                <div class="notice">
+
+                    <strong>
+                        Catatan informasi
+                    </strong>
+
+                    <p>
+                        Harga yang ditampilkan merupakan data referensi
+                        yang tersedia pada sistem GunungKebun dan dapat
+                        berbeda dengan harga transaksi sebenarnya di
+                        lapangan
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer id="footer">
+
+    <div class="container footer-inner">
+
+        <!-- KIRI -->
+        <div>  
+             GunungKebun.com
+        </div>
+
+        <!-- KANAN -->
+
+        <div class="footer-creator">
+
+                    <span class="creator-label">
+                    Dibuat oleh
+                    </span>
+
+            <div class="creator-profile">
+
+                    <img
+                    src="creator.jpg"
+                    alt="Creator GunungKebun"
+                    class="creator-photo"
+                >
+
+                <div class="creator-info">
+
+                        <strong>Aditya Subarna</strong>
+
+                        <a href="mailto:adityas.world14@gmail">
+                            adityas.world14@gmail.com
+                        </a>
+
+                    </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- TENGAH -->
+    <div class="footer-bottom">
+
+        © 2026 GunungKebun.com — Informasi Harga Jual TBS<br>
+        All right reserved
+
+    </div>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script src="gngkebun.js"></script>
+
+</body>
+</html>
