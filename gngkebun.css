@@ -1473,12 +1473,12 @@ footer {
 
 
     .hero {
-        padding: 60px 0;
+        padding: 0.10px 0;
     }
 
 
     .hero h1 {
-        font-size: 34px;
+        font-size: 25px;
     }
 
 
@@ -1493,7 +1493,7 @@ footer {
 
 
     .section {
-        padding: 55px 0;
+        padding: 25px 0;
     }
 
 
@@ -1508,7 +1508,7 @@ footer {
 
 
     .section-header h2 {
-        font-size: 25px;
+        font-size: 17px;
     }
 
 
@@ -1520,7 +1520,7 @@ footer {
 
 
     .search-button {
-        width: 100%;
+        width: 30%;
     }
 
 
@@ -1530,7 +1530,7 @@ footer {
 
 
     .price-result-number {
-        font-size: 31px;
+        font-size: 25px;
     }
 
 
