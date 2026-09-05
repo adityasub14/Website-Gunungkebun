@@ -15,7 +15,7 @@ html {
 
 body {
     font-family: Poppins, sans-serif;
-    color: #223127;
+    color: #4d6454;
     background: #ffffff;
     line-height: 1.6;
     overflow-x: hidden;
@@ -1184,7 +1184,7 @@ body.dark-mode .price-warning {
 
 .lapor-cta a,
 .lapor-link {
-    color: #19552d;
+    color: #144b23;
     font-weight: 700;
     text-decoration: none;
 }
@@ -1238,7 +1238,7 @@ body.dark-mode .lapor-link {
 .about-text p {
     font-size: 14px;
 
-    color: #626c65;
+    color: #1d201d;
 
     margin-bottom: 17px;
 }
@@ -1248,7 +1248,7 @@ body.dark-mode .lapor-link {
     background: #f2f5f1;
 
     border-left:
-        3px solid #317447;
+        3px solid #1a1f1c;
 
     padding: 15px;
 
@@ -1270,7 +1270,7 @@ body.dark-mode .lapor-link {
 
 
 .notice strong {
-    font-size: 13px;
+    font-size: 12px;
 }
 
 
@@ -1280,6 +1280,17 @@ body.dark-mode .lapor-link {
     margin-bottom: 0;
 
     font-size: 12px;
+}
+
+.button-icon {
+    width: 18px;
+    height: 18px;
+
+    margin-right: 8px;
+
+    vertical-align: middle;
+
+    object-fit: contain;
 }
 
 
@@ -1567,5 +1578,28 @@ footer {
     .hero h1 {
         font-size: 29px;
     }
+/* ======================================================
+    simbol-simbol
+=========================================================*/
 
+}
+.wa-icon-link {
+    display: inline-flex;
+    margin-top: 8px;
+    color: #3bb44a;
+}
+
+.wa-icon-link:hover {
+    color: #6fd97e;
+}
+
+.button-icon-only {
+    width: 42px;
+    padding: 0;
+}
+
+.button-icon-only .button-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 0;
 }
