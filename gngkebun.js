@@ -2312,7 +2312,7 @@ const wilayahSumatra = {
 ========================================================= */
 
 const URL_API_HARGA =
-    "https://script.google.com/macros/s/AKfycbyI0klLlUS5T8011LUxx2zg2jNXyanwc6Rdw8ZclSxMbjt9SCk_3sIjd9GUBPyPY0Bt/exec";
+    "https://script.google.com/macros/s/AKfycby7Neph2HMxlhaapyN42YR1pvqowOJ2zbQYBgPSgyM0ClF48KDniDRdolvHHeLP2U80/exec";
 
 
 /* =========================================================
