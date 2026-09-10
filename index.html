@@ -309,12 +309,7 @@ h1{font-size:clamp(33px,9vw,50px)}
 </head>
 <body>
 <!-- ================================================================
-     TICKER BAR (bar berjalan paling atas)
-     Konten di bawah ini HANYA fallback (tampil sebentar sebelum data
-     Google Sheet selesai dimuat, atau kalau internet lambat).
-     Setelah halaman selesai load, isi ticker ini akan DIGANTI OTOMATIS
-     oleh fungsi renderTicker() di bagian <script> (cari komentar
-     "RENDER TICKER OTOMATIS DARI GOOGLE SHEET" di bawah).
+     TICKER BAR 
      Provinsi yang ditampilkan diatur lewat variabel TICKER_PROVINCES.
 ================================================================= -->
 <div class="grain"></div>
@@ -365,7 +360,7 @@ h1{font-size:clamp(33px,9vw,50px)}
 <div class="hero-orb o1"></div><div class="hero-orb o2"></div>
 <div class="hero-giant">SUMATERA</div>
 <svg class="hero-leaf" width="220" height="220" viewBox="0 0 200 200" fill="none"><path d="M100 10 C 130 60, 150 110, 100 190 C 50 110, 70 60, 100 10Z" stroke="#0E2117" stroke-width="2"/><path d="M100 30 L100 170 M100 60 L135 50 M100 60 L65 50 M100 95 L140 85 M100 95 L60 85 M100 130 L130 122 M100 130 L70 122" stroke="#0E2117" stroke-width="1.5"/></svg>
-<!-- GANTI FOTO DI SINI: ubah "src" di bawah ini menjadi nama file foto , -->
+<!-- GANTI FOTO DI SINI:  -->
 <div class="hero-img-card"><img src="tandan.jpg" alt="Kebun sawit"><span>Kebun Sawit • Sekernan-Muaro Jambi</span></div>
 <!-- akhir bagian foto Kebun Sawit ...-->
 </div>
@@ -538,7 +533,7 @@ const trendNote=document.getElementById('trendNote');
 const siteHeader=document.getElementById('siteHeader');
 
 /* =========================================================
-   RENDER TICKER OTOMATIS DARI GOOGLE SHEET
+   RENDER TICKER OTOMATIS
    TICKER_PROVINCES: daftar provinsi yang ditampilkan di bar
    berjalan paling atas beserta urutannya. Tambah/hapus/ubah
    urutan nama provinsi di sini sesuai keinginan Anda — nama
@@ -582,10 +577,6 @@ const PROV_CODE={"Aceh":"ACEH","Sumatera Utara":"SUMUT","Sumatera Barat":"SUMBAR
 
 /* =========================================================
    ESTIMASI HARGA PER USIA TANAMAN
-   Sheet cuma punya 1 harga per kecamatan — dianggap sebagai
-   harga usia 10-20 tahun (puncak produktivitas). Usia lain
-   dihitung sebagai persentase dari situ. Ubah angka % di
-   bawah kapan saja sesuai kebijakan Anda.
 ========================================================= */
 const AGES=[["3","3 Tahun",0.86,true],["4","4 Tahun",0.90,true],["★","10–20 Tahun",1.00,false],["21+","21 Tahun ke atas",0.97,true]];
 
