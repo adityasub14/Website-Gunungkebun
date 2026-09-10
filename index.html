@@ -1,497 +1,775 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>GunungKebun.com — Informasi Harga Jual TBS</title>
-
-    <meta
-        name="description"
-        content="GunungKebun.com menyediakan informasi harga jual TBS berdasarkan provinsi, kabupaten, dan kecamatan."
-    >
-    
-    <link rel="stylesheet" href="gngkebun.css">
-
-    <!-- Google Analytics-->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-99MW2W8BW9"></scripth>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js',new Date());
-        gtag('config', 'G-99MW2W8BW9');
-    </script>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GunungKebun —Lihat Harga TBS</title>
+<meta name="description" content="Pantau harga TBS kelapa sawit terbaru hingga level kecamatan di Sumatera.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#618a48; --bg-2:#E9E2CF; --paper:#FFFEF8; --card:#FFFFFF;
+--ink:#15211B; --forest:#0E2117; --forest-2:#1A3A29; --forest-3:#081710;
+--moss:#111712; --muted:#111410; --line:#DCD5BB; --line-soft:#ECE6D1;
+--lime:#afd517; --lime-deep:#A9D900; --lime-soft:#F0FFC2;
+--green:#149945; --green-deep:#0C7A36; --green-bg:#E7F6EA;
+--orange:#FF5C28;
+--sh-xs:0 1px 2px rgba(20,32,26,.07);
+--sh-sm:0 2px 8px rgba(20,32,26,.06),0 12px 30px -14px rgba(20,32,26,.18);
+--sh-md:0 18px 44px -20px rgba(14,33,23,.25);
+--sh-lg:0 36px 90px -30px rgba(14,33,23,.38);
+--r-s:10px; --r-m:16px; --r-l:22px; --r-full:999px;
+--font-display:"Fraunces",serif; --font-sans:"Plus Jakarta Sans",system-ui,sans-serif;
+--font-mono:"JetBrains Mono",monospace; --font-grot:"Space Grotesk",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);background:var(--bg);font-family:var(--font-sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(900px 520px at 12% -6%, rgba(217,255,61,.42), transparent 60%),radial-gradient(820px 620px at 96% 12%, rgba(20,153,69,.14), transparent 60%),radial-gradient(760px 620px at 50% 108%, rgba(255,92,40,.09), transparent 60%)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.55;background-image:linear-gradient(rgba(20,32,26,.05) 1px, transparent 1px),linear-gradient(90deg, rgba(20,32,26,.05) 1px, transparent 1px);background-size:46px 46px;mask-image:radial-gradient(920px 520px at 50% 0%, black 28%, transparent 76%)}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}
+button,select{font:inherit}
+button{cursor:pointer}
+::selection{background:var(--forest);color:var(--lime)}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#B9B39C;border-radius:99px;border:2px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:var(--forest)}
+/* SETOR HARGA (FAB) */
+.report-fab{position:fixed;left:20px;bottom:20px;z-index:35;display:flex;align-items:center;gap:9px;padding:12px 18px 12px 12px;background:var(--forest);color:var(--paper);border:1px solid rgba(217,255,61,.3);border-radius:999px;font-family:var(--font-sans);font-weight:700;font-size:12.5px;box-shadow:var(--sh-md);transition:.25s}
+.report-fab:hover{background:var(--forest-2);transform:translateY(-3px);box-shadow:var(--sh-lg)}
+.report-fab .fab-ico{width:26px;height:26px;border-radius:50%;background:var(--lime);color:var(--forest);display:grid;place-items:center;font-size:13px;font-weight:800;flex-shrink:0}
+.report-fab span.fab-label{white-space:nowrap}
+@media (max-width:640px){.report-fab{padding:11px 16px 11px 11px;font-size:11.5px}.report-fab span.fab-sub{display:none}}
+/* Tombol setor harga di dalam board */
+.board-footer{flex-wrap:wrap;gap:10px}
+.board-footer .board-report-link{display:inline-flex;align-items:center;gap:6px;background:var(--lime-soft);color:var(--forest)!important;border:1px solid var(--lime-deep);padding:7px 13px;border-radius:999px;font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;transition:.2s}
+.board-footer .board-report-link:hover{background:var(--lime);transform:translateY(-1px)}
+/* TICKER */
+.ticker{min-height:36px;background:var(--forest-3);color:#E9F2DF;display:flex;align-items:center;overflow:hidden;position:relative;z-index:30;border-bottom:1px solid rgba(217,255,61,.18);font-family:var(--font-mono);font-size:10.5px;letter-spacing:.02em;white-space:nowrap}
+.ticker::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg, var(--forest-3) 0%, transparent 8%, transparent 92%, var(--forest-3) 100%)}
+.ticker-track{display:flex;width:max-content;animation:ticker 38s linear infinite}
+.ticker-group{display:flex;align-items:center;gap:28px;padding-right:28px}
+.ticker b{font-family:var(--font-sans);font-weight:800;font-size:10px;letter-spacing:.08em}
+.ticker .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);display:inline-block;margin-right:8px;box-shadow:0 0 10px rgba(217,255,61,.8)}
+.ticker .up{color:var(--lime);font-weight:700;font-style:normal;background:rgba(217,255,61,.12);padding:2px 7px;border-radius:999px;border:1px solid rgba(217,255,61,.25);font-size:10px}
+.ticker .sep{opacity:.2}
+@keyframes ticker{to{transform:translateX(-50%)}}
+/* HEADER */
+header{background:rgba(243,239,225,.84);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(20,32,26,.1);position:sticky;top:0;z-index:20;transition:.3s}
+header.scrolled{box-shadow:0 12px 32px -16px rgba(14,33,23,.25);background:rgba(243,239,225,.94)}
+.scroll-progress{position:absolute;top:0;left:0;height:2.5px;width:0;background:linear-gradient(90deg,var(--green),var(--lime-deep),var(--lime));z-index:21}
+.nav{max-width:1200px;margin:auto;padding:0 28px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-grot);font-weight:700;font-size:18px;letter-spacing:-.06em;flex-shrink:0}
+.logo-mark{width:32px;height:32px;background:linear-gradient(135deg,var(--forest) 20%,var(--forest-2));color:var(--lime);display:grid;place-items:center;border-radius:11px;font-size:16px;transform:rotate(-6deg);box-shadow:var(--sh-sm);border:1px solid rgba(217,255,61,.35);position:relative;overflow:hidden}
+.logo-mark::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg, rgba(217,255,61,.28), transparent 60%)}
+/* Ganti src di <img class="logo-mark-img"> dengan logo lama Anda. */
+.logo-mark-img{width:32px;height:32px;border-radius:11px;object-fit:contain;display:block;background:var(--paper);border:1px solid var(--line);box-shadow:var(--sh-sm);flex-shrink:0}
+.logo em{font-style:normal;color:var(--green-deep);font-weight:700}
+.nav-links{display:flex;align-items:center;gap:4px;font-size:12px;font-weight:600;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:4px;box-shadow:var(--sh-xs)}
+.nav-links a{padding:8px 16px;border-radius:999px;transition:.25s;color:#3A443B}
+.nav-links a:hover{background:#F3F0E3;color:var(--ink)}
+.nav-links a.active{background:var(--forest);color:var(--paper)}
+.nav-cta{background:var(--forest);color:var(--paper);border:1px solid var(--forest);padding:9px 14px;font-size:10px;font-weight:800;letter-spacing:.08em;border-radius:999px;display:flex;align-items:center;gap:7px;transition:.25s;white-space:nowrap}
+.nav-cta i{font-style:normal;background:var(--lime);color:var(--forest);width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:800;transition:.25s}
+.nav-cta:hover{background:var(--forest-2);transform:translateY(-1px);box-shadow:var(--sh-sm)}
+.nav-cta:hover i{transform:rotate(45deg)}
+.menu-toggle{display:none;width:40px;height:40px;border:1px solid var(--line);background:var(--paper);font-size:18px;font-weight:800;border-radius:12px;line-height:1}
+.mobile-links{display:none}
+/* HERO */
+.hero{max-width:1200px;margin:auto;padding:58px 28px 30px;display:grid;grid-template-columns:1.12fr .88fr;gap:44px;align-items:center;position:relative;z-index:1}
+.hero-deco{position:absolute;inset:0;pointer-events:none;overflow:visible}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.7}
+.hero-orb.o1{width:420px;height:420px;background:radial-gradient(circle, rgba(217,255,61,.55), transparent 70%);top:-120px;right:-80px}
+.hero-orb.o2{width:360px;height:360px;background:radial-gradient(circle, rgba(20,153,69,.18), transparent 70%);bottom:-120px;left:-100px}
+.hero-giant{position:absolute;left:-10px;bottom:-8px;font:700 140px/0.8 var(--font-grot);letter-spacing:-.08em;color:transparent;-webkit-text-stroke:1px rgba(20,32,26,.08);white-space:nowrap;user-select:none}
+.hero-leaf{position:absolute;right:36%;top:10px;opacity:.07;transform:rotate(12deg)}
+.hero-img-card{position:absolute;right:-8px;top:-6px;width:148px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:6px;box-shadow:var(--sh-md);transform:rotate(6deg);overflow:hidden}
+.hero-img-card img{width:100%;height:86px;object-fit:cover;border-radius:10px;display:block;filter:saturate(1.15) contrast(1.05)}
+.hero-img-card span{display:block;font:600 8px var(--font-mono);letter-spacing:.08em;color:var(--forest);padding:7px 6px 4px;text-transform:uppercase}
+.hero-img-card::after{content:"SUMATERA";position:absolute;top:12px;left:12px;background:rgba(14,33,23,.82);backdrop-filter:blur(6px);color:var(--lime);font:700 7.5px var(--font-mono);letter-spacing:.1em;padding:4px 7px;border-radius:99px;border:1px solid rgba(217,255,61,.4)}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--forest);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:8px 14px 8px 10px;box-shadow:var(--sh-xs)}
+.eyebrow strong{background:var(--forest);color:var(--lime);font-size:8.5px;padding:3px 7px;border-radius:99px;letter-spacing:.08em}
+.pulse{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(20,153,69,.15);animation:pulse 1.8s infinite;flex-shrink:0}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(20,153,69,0)}}
+h1{max-width:640px;margin:20px 0 16px;font-family:var(--font-display);font-size:clamp(44px,5.6vw,74px);line-height:.92;letter-spacing:-.04em;font-weight:600}
+h1 .highlight{position:relative;z-index:0;white-space:nowrap;font-style:italic;font-weight:600}
+h1 .highlight::after{content:"";position:absolute;height:13px;background:linear-gradient(90deg,var(--lime),#C6F000);left:-4px;right:-6px;bottom:6px;z-index:-1;transform:rotate(-1deg);border-radius:4px;box-shadow:0 2px 0 rgba(20,32,26,.1)}
+.hero-copy{max-width:472px;font-size:14.5px;line-height:1.7;color:var(--moss);margin:0}
+.hero-meta{display:flex;align-items:center;gap:16px;margin-top:22px;font-family:var(--font-mono);font-size:10px;color:var(--muted);letter-spacing:.04em}
+.hero-meta span{display:flex;align-items:center;gap:7px}
+.hero-meta .line{width:32px;height:1px;background:var(--line)}
+.hero-avatars{display:flex;align-items:center}
+.hero-avatars span{width:26px;height:26px;border-radius:50%;border:2px solid var(--bg);margin-left:-8px;display:grid;place-items:center;font-size:11px;font-weight:800}
+.hero-avatars span:first-child{margin-left:0}
+.hero-badges{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.hero-badges span{font:600 9px var(--font-mono);letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.7);border:1px solid var(--line);padding:6px 10px;border-radius:99px;color:var(--forest);backdrop-filter:blur(6px)}
+/* STAMP */
+.hero-stamp-wrap{justify-self:end;position:relative;width:322px;max-width:100%}
+.hero-stamp{width:100%;background:linear-gradient(165deg, #0F261B 0%, #163927 55%, #0D1F15 100%);border:1px solid rgba(217,255,61,.26);border-radius:var(--r-l);padding:19px 19px 17px;color:#F3F7E8;position:relative;overflow:hidden;box-shadow:var(--sh-lg), inset 0 1px 0 rgba(255,255,255,.14);transform:rotate(1.2deg);transition:.4s;z-index:2}
+.hero-stamp:hover{transform:rotate(0deg) translateY(-4px)}
+.hero-stamp::before{content:"";position:absolute;top:-60px;right:-60px;width:180px;height:180px;background:radial-gradient(circle, rgba(217,255,61,.26), transparent 70%);border-radius:50%}
+.hero-stamp::after{content:"TBS";position:absolute;bottom:-22px;right:6px;color:rgba(255,255,255,.05);font:700 86px/1 var(--font-grot);letter-spacing:-.08em}
+.stamp-shine{position:absolute;top:0;bottom:0;width:80px;background:linear-gradient(105deg,transparent,rgba(255,255,255,.14),transparent);left:-100px;transform:skewX(-15deg);animation:shine 4.5s infinite}
+@keyframes shine{0%,60%{left:-100px}100%{left:120%}}
+.stamp-float{position:absolute;top:-12px;left:18px;z-index:3;background:var(--lime);color:var(--forest);font:800 8.5px var(--font-mono);letter-spacing:.1em;padding:6px 10px;border-radius:99px;border:1px solid rgba(0,0,0,.08);box-shadow:var(--sh-sm)}
+.stamp-top{display:flex;justify-content:space-between;align-items:center;font:500 9px var(--font-mono);letter-spacing:.12em;opacity:.85;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:12px}
+.stamp-top span:last-child{background:rgba(217,255,61,.14);border:1px solid rgba(217,255,61,.25);color:var(--lime);padding:3px 8px;border-radius:999px}
+.stamp-price{position:relative;z-index:1;margin-top:16px;font-family:var(--font-grot);font-size:31px;font-weight:700;letter-spacing:-.05em;display:flex;align-items:baseline;gap:8px}
+.stamp-price small{font:500 10px var(--font-mono);letter-spacing:.08em;opacity:.7}
+.stamp-price small:first-child{background:var(--lime);color:var(--forest);padding:3px 7px;border-radius:6px;opacity:1;font-weight:700}
+.stamp-change{position:relative;z-index:1;display:inline-flex;align-items:center;gap:6px;margin-top:10px;background:var(--lime);color:var(--forest);padding:6px 10px;border-radius:999px;font:600 10px var(--font-mono);letter-spacing:.02em}
+.stamp-spark{position:relative;z-index:1;margin-top:13px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:10px 12px 8px;backdrop-filter:blur(6px)}
+.stamp-spark svg{width:100%;height:44px;display:block}
+.stamp-spark div{display:flex;justify-content:space-between;font:500 8.5px var(--font-mono);opacity:.6;margin-top:4px;letter-spacing:.06em}
+.stamp-shadow{position:absolute;inset:12px -10px -10px 10px;background:linear-gradient(180deg,rgba(14,33,23,.18),transparent);border-radius:var(--r-l);z-index:1;filter:blur(2px)}
+/* SEARCH */
+.search-section{background:transparent;border:0;position:relative;z-index:2;padding:10px 28px 0}
+.search-inner{max-width:1200px;margin:auto;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:20px 22px 16px;box-shadow:var(--sh-md);position:relative;overflow:hidden}
+.search-inner::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg, var(--lime-deep), var(--green))}
+.search-inner::after{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(217,255,61,.6),transparent)}
+.search-grid{display:flex;align-items:flex-end;gap:22px}
+.search-title{flex:0 0 215px}
+.search-title small{display:flex;align-items:center;gap:6px;color:var(--green-deep);margin-bottom:8px;font:600 9.5px var(--font-mono);text-transform:uppercase;letter-spacing:.12em}
+.search-title small::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green)}
+.search-title h3{margin:0;font:600 19px/1.15 var(--font-display);letter-spacing:-.02em}
+.wilayah-pills{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+.wilayah-pills span{font:700 8.5px var(--font-mono);letter-spacing:.06em;background:#F3F0E3;border:1px solid var(--line);padding:5px 8px;border-radius:99px;color:var(--forest)}
+.wilayah-pills span:first-child{background:var(--forest);color:var(--lime);border-color:var(--forest)}
+.search-form{display:grid;grid-template-columns:1fr 1fr 1fr 128px;gap:10px;flex:1;align-items:end}
+.field{display:grid;gap:6px}
+.field label{font:600 8.5px var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-left:2px;display:flex;align-items:center;gap:6px}
+.field label b{width:16px;height:16px;border-radius:50%;background:var(--forest);color:var(--lime);display:grid;place-items:center;font-size:9px}
+.field:nth-child(2) label b{background:var(--green)}
+.field:nth-child(3) label b{background:var(--lime-deep)}
+.select-wrap{position:relative;flex:1}
+.select-wrap::after{content:"";position:absolute;right:14px;top:50%;width:7px;height:7px;border-right:2px solid var(--forest);border-bottom:2px solid var(--forest);transform:translateY(-70%) rotate(45deg);pointer-events:none;opacity:.6}
+select{width:100%;height:42px;appearance:none;border:1px solid var(--line);background:#FAF7EC;color:var(--ink);padding:0 34px 0 13px;font-size:12px;font-weight:600;border-radius:12px;outline:none;transition:.2s;cursor:pointer}
+select:focus{border-color:var(--green);background:#fff;box-shadow:0 0 0 3px rgba(20,153,69,.12)}
+select:hover:not(:disabled){border-color:#C4BCA2}
+select:disabled{opacity:.55;cursor:not-allowed;background:#EEEAD8}
+.search-btn{min-width:128px;height:42px;border:1px solid var(--forest);background:var(--forest);color:var(--paper);font-weight:800;font-size:10px;letter-spacing:.08em;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:7px;transition:.25s;position:relative;overflow:hidden}
+.search-btn::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg, transparent, rgba(217,255,61,.25), transparent);transform:translateX(-100%);transition:.5s}
+.search-btn:hover::after{transform:translateX(100%)}
+.search-btn:hover{background:var(--forest-2);transform:translateY(-1px);box-shadow:var(--sh-sm)}
+.search-btn:active{transform:translateY(0)}
+.search-btn span{color:var(--lime)}
+.search-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);font:500 9.5px var(--font-mono);letter-spacing:.04em;color:var(--muted);flex-wrap:wrap}
+.search-foot strong{color:var(--green-deep)}
+.search-foot .hint-dot{width:6px;height:6px;border-radius:50%;background:var(--lime-deep);display:inline-block;margin-right:7px;box-shadow:0 0 0 4px rgba(185,230,0,.18)}
+/* MAIN */
+.main{max-width:1200px;padding:44px 28px 64px;margin:auto;position:relative;z-index:1}
+.section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:22px;gap:20px}
+h2{margin:0;font:600 clamp(30px,3.6vw,44px)/0.95 var(--font-display);letter-spacing:-.035em}
+h2 span{font-style:italic;background:linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 92%, transparent 92%);padding:0 4px}
+.section-header p{margin:0;font:500 10px var(--font-mono);color:var(--muted);text-align:right;line-height:1.6;letter-spacing:.06em;text-transform:uppercase}
+.section-header p strong{color:var(--forest);background:var(--paper);border:1px solid var(--line);padding:2px 8px;border-radius:999px}
+/* PRICE LAYOUT */
+.price-layout{display:grid;grid-template-columns:1.42fr .88fr;gap:16px;align-items:start}
+.price-board{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh-md);overflow:hidden}
+.board-top{padding:13px 18px;display:flex;justify-content:space-between;gap:12px;align-items:center;background:linear-gradient(180deg,#FAF7EC,#F5F1E2);border-bottom:1px solid var(--line-soft)}
+.board-location{display:flex;align-items:center;gap:11px;min-width:0}
+.board-dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(20,153,69,.15);animation:pulse 2s infinite;flex-shrink:0}
+.board-location-text{min-width:0}
+.board-location-text strong{display:block;font-weight:800;font-size:11.5px;letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.board-location-text small{display:block;font:600 9.5px var(--font-mono);color:var(--muted);letter-spacing:.04em;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.board-location-text small em{font-style:normal;background:var(--forest);color:var(--lime);padding:1px 6px;border-radius:99px;font-size:8.5px;margin-left:4px}
+.updated{color:var(--muted);font:500 8.5px var(--font-mono);letter-spacing:.05em;background:#fff;border:1px solid var(--line);padding:5px 10px;border-radius:999px;white-space:nowrap}
+.price-table{width:100%;border-collapse:collapse}
+.price-table th{padding:9px 18px;text-align:left;background:transparent;border-bottom:1px solid var(--line-soft);color:var(--muted);font:600 8.5px var(--font-mono);text-transform:uppercase;letter-spacing:.1em}
+.price-table th:nth-child(n+2),.price-table td:nth-child(n+2){text-align:right}
+.price-table td{padding:11px 18px;border-bottom:1px solid var(--line-soft);font-size:11px;font-weight:600;transition:.2s}
+.price-table tr:last-child td{border:0}
+.price-table tbody tr{transition:.2s;cursor:default}
+.price-table tbody tr:hover td{background:var(--green-bg)}
+.price-table td:first-child{display:flex;align-items:center;gap:9px;font-size:11px}
+.age-badge{width:26px;height:26px;border-radius:8px;background:#F3F0E3;border:1px solid var(--line);display:grid;place-items:center;font:700 9.5px var(--font-grot);flex-shrink:0}
+.price-table tr:nth-child(3) .age-badge{background:var(--forest);color:var(--lime);border-color:var(--forest)}
+.price-table td:nth-child(2){font-family:var(--font-grot);font-size:12px;font-weight:700;letter-spacing:-.02em}
+.best-row td{background:linear-gradient(90deg, rgba(217,255,61,.20), transparent 82%)!important;border-left:3px solid var(--lime-deep)}
+.rise{color:var(--green-deep);font:600 10px var(--font-mono);background:var(--green-bg);border:1px solid rgba(20,153,69,.2);padding:3px 8px;border-radius:999px;display:inline-block;white-space:nowrap}
+.neutral{color:#7A7D78;font:500 10px var(--font-mono);background:#F3F0E3;border:1px solid var(--line);padding:3px 8px;border-radius:999px;display:inline-block;white-space:nowrap}
+.board-footer{border-top:1px solid var(--line-soft);padding:11px 18px;background:var(--forest);color:#E9F2DF;display:flex;justify-content:space-between;align-items:center;font-size:10px;font-weight:700;letter-spacing:.03em}
+.board-footer span{display:flex;align-items:center;gap:8px;font-family:var(--font-mono);font-weight:500;font-size:8.5px;letter-spacing:.08em;opacity:.85}
+.board-footer span::before{content:"✓";width:16px;height:16px;border-radius:50%;background:var(--lime);color:var(--forest);display:grid;place-items:center;font-size:10px;font-weight:800;flex-shrink:0}
+.board-footer a{color:var(--lime);font-size:10.5px;display:flex;align-items:center;gap:6px;transition:.2s}
+.board-footer a:hover{gap:10px}
+.side-stack{display:grid;gap:16px}
+.info-card{border:1px solid var(--line);border-radius:18px;padding:18px;position:relative;overflow:hidden;box-shadow:var(--sh-sm);transition:.3s}
+.info-card:hover{transform:translateY(-3px);box-shadow:var(--sh-md)}
+.info-card.dark{background:linear-gradient(155deg, #102619 0%, #1B3F2B 100%);color:#F1F6E8;border-color:rgba(217,255,61,.22)}
+.info-card.dark::before{content:"";position:absolute;top:-40px;right:-40px;width:140px;height:140px;background:radial-gradient(circle, rgba(217,255,61,.22), transparent 70%);border-radius:50%}
+.info-card.green{background:linear-gradient(155deg, var(--lime) 0%, #686c57 100%);border-color:rgba(20,32,26,.12);color:var(--forest)}
+.info-card.green::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(14,33,23,.12) 1px, transparent 1px);background-size:14px 14px;opacity:.5;pointer-events:none}
+.card-label{font:600 8.5px var(--font-mono);letter-spacing:.12em;text-transform:uppercase;opacity:.75;display:flex;align-items:center;gap:7px}
+.card-label::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.trend-value{margin:10px 0 4px;font:700 22px/1 var(--font-grot);letter-spacing:-.04em;position:relative;z-index:1}
+.trend-value small{font:500 10px var(--font-mono);letter-spacing:0;opacity:.7}
+.info-card p{font-size:11px;line-height:1.6;margin:6px 0 0;opacity:.72;max-width:200px;position:relative;z-index:1}
+.mini-bars{height:42px;display:flex;gap:5px;align-items:end;position:absolute;bottom:18px;right:18px;z-index:1}
+.mini-bars i{display:block;width:7px;background:rgba(217,255,61,.35);border-radius:4px;transition:.3s}
+.mini-bars i:nth-child(1){height:15px}.mini-bars i:nth-child(2){height:22px}.mini-bars i:nth-child(3){height:18px}.mini-bars i:nth-child(4){height:31px}.mini-bars i:nth-child(5){height:42px;background:var(--lime);box-shadow:0 0 12px rgba(217,255,61,.5)}
+.info-card:hover .mini-bars i{transform:scaleY(1.05)}
+.card-icon{position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:10px;display:grid;place-items:center;font-size:14px;background:rgba(14,33,23,.08);border:1px solid rgba(14,33,23,.1)}
+.info-card.dark .card-icon{background:rgba(217,255,61,.12);border-color:rgba(217,255,61,.2)}
+/* GUIDE */
+.guide{margin-top:44px;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:var(--sh-sm);position:relative;overflow:hidden}
+.guide::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg, var(--green), var(--lime-deep), var(--orange))}
+.guide-head{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.number{flex:0 0 34px;width:34px;height:34px;display:grid;place-items:center;background:var(--forest);color:var(--lime);border-radius:12px;font:700 15px var(--font-grot);transform:rotate(-6deg);box-shadow:var(--sh-xs)}
+.guide h3{margin:0;font:600 21px var(--font-display);letter-spacing:-.02em}
+.guide-head p{margin:4px 0 0;font:500 10px var(--font-mono);color:var(--muted);letter-spacing:.05em}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.step{padding:18px 16px;background:#FAF7EC;border:1px solid var(--line-soft);border-radius:14px;transition:.3s;position:relative;overflow:hidden}
+.step:hover{background:#fff;transform:translateY(-4px);box-shadow:var(--sh-sm);border-color:var(--line)}
+.step::after{content:"→";position:absolute;top:16px;right:16px;font-size:14px;opacity:0;transform:translateX(-6px);transition:.3s;color:var(--green)}
+.step:hover::after{opacity:1;transform:translateX(0)}
+.step-index{font:600 9px var(--font-mono);color:var(--green-deep);letter-spacing:.08em;background:var(--green-bg);border:1px solid rgba(20,153,69,.18);display:inline-block;padding:4px 9px;border-radius:999px}
+.step strong{display:block;margin:14px 0 6px;font-size:13px;font-weight:700;letter-spacing:-.01em}
+.step p{margin:0;font-size:11.5px;line-height:1.6;color:#5E665E}
+.step-num{position:absolute;bottom:-8px;right:10px;font:700 52px/1 var(--font-display);color:rgba(20,32,26,.05);font-style:italic}
+/* FOOTER */
+footer{background:var(--forest-3);color:#D6DDD1;border-top:1px solid rgba(217,255,61,.15);position:relative;overflow:hidden}
+footer::before{content:"GUNUNGKEBUN";position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);font:700 92px/1 var(--font-grot);letter-spacing:-.06em;color:rgba(255,255,255,.025);white-space:nowrap;pointer-events:none}
+.footer-inner{max-width:1200px;margin:auto;padding:38px 28px 22px;display:flex;justify-content:space-between;gap:32px;position:relative;z-index:1}
+.footer-inner .logo{color:#F3F7E8}
+.footer-text{max-width:360px;color:#9AA69B;font-size:12px;line-height:1.7;margin:14px 0 0}
+.footer-text strong{color:var(--lime)}
+.footer-links{display:flex;gap:8px;font-size:11px;font-weight:600;align-items:flex-start;flex-wrap:wrap}
+.footer-links a{padding:8px 14px;border:1px solid rgba(255,255,255,.12);border-radius:999px;transition:.25s;color:#C8D0C4}
+.footer-links a:hover{color:var(--forest);background:var(--lime);border-color:var(--lime)}
+.copyright{max-width:1200px;margin:auto;border-top:1px solid rgba(255,255,255,.08);padding:15px 28px;color:#7A857B;font:500 9px var(--font-mono);letter-spacing:.06em;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;position:relative;z-index:1}
+.copyright span:last-child{color:var(--lime);opacity:.7}
+/* TOAST */
+.toast{position:fixed;z-index:50;bottom:24px;left:50%;transform:translate(-50%,120px);background:var(--forest);border:1px solid rgba(217,255,61,.3);box-shadow:var(--sh-lg);padding:11px 18px 11px 11px;color:#F3F7E8;font-size:11.5px;font-weight:600;border-radius:999px;opacity:0;transition:.35s cubic-bezier(.2,.9,.3,1.2);white-space:nowrap;display:flex;align-items:center;gap:10px;max-width:92vw;overflow:hidden;text-overflow:ellipsis}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.toast-dot{width:26px;height:26px;border-radius:50%;background:var(--lime);color:var(--forest);display:grid;place-items:center;font-size:13px;font-weight:800;flex-shrink:0}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.2,.7,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+.flash{animation:flash 1s}
+@keyframes flash{0%{background:rgba(217,255,61,.5)}100%{background:transparent}}
+@media (max-width:1020px){
+.search-grid{flex-direction:column;align-items:stretch}
+.search-title{flex:none}
+.search-form{grid-template-columns:1fr 1fr 1fr}
+.search-btn{grid-column:1/-1;width:100%}
+.hero-img-card{display:none}
+.hero-giant{font-size:90px}
+}
+@media (max-width:920px){
+.hero{grid-template-columns:1fr;gap:28px;padding:40px 20px 26px}
+h1{font-size:clamp(42px,11vw,58px)}
+.hero-stamp-wrap{justify-self:start;width:min(340px,100%)}
+.hero-stamp{transform:rotate(0)}
+.price-layout{grid-template-columns:1fr}
+.side-stack{grid-template-columns:1fr 1fr}
+.steps{grid-template-columns:1fr}
+.section-header{flex-direction:column;align-items:flex-start}
+.section-header p{text-align:left}
+}
+@media (max-width:800px){
+.nav{height:62px;padding:0 18px}
+.nav-links,.nav-cta{display:none}
+.menu-toggle{display:grid;place-items:center}
+.mobile-links{display:none;position:absolute;top:62px;left:12px;right:12px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:var(--sh-md);z-index:30}
+.mobile-links.open{display:grid;gap:4px}
+.mobile-links a{padding:12px 14px;border-radius:10px;font-size:13px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.mobile-links a::after{content:"→";opacity:.4}
+.mobile-links a:hover{background:#F3F0E3}
+.search-section{padding:8px 16px 0}
+.main{padding:34px 16px 46px}
+.price-board{overflow-x:auto}
+.price-table,.board-top,.board-footer{min-width:560px}
+.guide{padding:22px 16px;margin-top:30px}
+.footer-inner{padding:32px 18px;flex-direction:column}
+.copyright{padding:14px 18px}
+}
+@media (max-width:640px){
+.search-form{grid-template-columns:1fr}
+.side-stack{grid-template-columns:1fr}
+.hero-meta{flex-wrap:wrap}
+.search-foot{flex-direction:column;align-items:flex-start}
+}
+</style>
 </head>
-
 <body>
-
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
-
-<header class="top-navbar">
-
-    <div class="navbar-container">
-
-        <a href="#" class="brand">
-
-
-    <div class="brand">
-
-    <img
-        src="logo2.jpeg"
-        alt="Logo Gunungkebun"
-        class="brand-logo"
-    >
-
-    <div class="brand-text">
-        <strong>GunungKebun.com</strong>
-    </div>
-
+<div class="grain"></div>
+<div class="ticker" aria-label="Informasi pembaruan harga">
+<div class="ticker-track" id="tickerTrack">
+<div class="ticker-group">
+<span><span class="dot"></span><b>HARGA TBS Swadaya</b></span><span class="sep">/</span>
+<span>Data per kecamatan • Diperbarui hari kerja</span><span class="sep">/</span>
+<span>Riau: <b>Rp 3.245/kg</b> <em class="up">↑ 1,8%</em></span><span class="sep">/</span>
+<span>Sumatera Utara: <b>Rp 3.110/kg</b> <em class="up">↑ 0,9%</em></span><span class="sep">/</span>
+<span>Sumatera Barat: <b>Rp 2.998/kg</b> <em class="up">↑ 1,1%</em></span><span class="sep">/</span>
+<span>Jambi: <b>Rp 3.025/kg</b> <em class="up">↑ 1,2%</em></span><span class="sep">/</span>
 </div>
-
+<div class="ticker-group" aria-hidden="true">
+<span><span class="dot"></span><b>HARGA TBS SUMATERA</b></span><span class="sep">/</span>
+<span>Data per kecamatan • Diperbarui hari kerja</span><span class="sep">/</span>
+<span>Riau: <b>Rp 3.245/kg</b> <em class="up">↑ 1,8%</em></span><span class="sep">/</span>
+<span>Sumatera Utara: <b>Rp 3.110/kg</b> <em class="up">↑ 0,9%</em></span><span class="sep">/</span>
+<span>Sumatera Barat: <b>Rp 2.998/kg</b> <em class="up">↑ 1,1%</em></span><span class="sep">/</span>
+<span>Jambi: <b>Rp 3.025/kg</b> <em class="up">↑ 1,2%</em></span><span class="sep">/</span>
+</div>
+</div>
+</div>
+<header id="siteHeader">
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="nav">
+<a href="#" class="logo" aria-label="GunungKebun beranda">
+  <!-- LOGO LAMA: ganti "logo-lama.png" dengan nama/path file logo Anda -->
+  <img class="logo-mark-img" src="logoNEWgngkebun.png" alt="Logo GunungKebun" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+  <span class="logo-mark" style="display:none;">◈</span>
+  GUNUNG<em>KEBUN</em>
 </a>
-
-
-        <div class="navbar-right">
-
-            <div class="data-status">
-
-                <span class="status-dot"></span>
-
-                <span>
-                    Update
-                </span>
-
-            </div>
-
-
-            <button
-                class="theme-toggle"
-                id="themeToggle"
-                type="button"
-                aria-label="Aktifkan dark mode"
-                title="Light / Dark Mode"
-            >
-
-                 <span class="theme-icon" id="themeIcon">☾</span>
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- MENU -->
-
-    <div
-        class="menu-panel"
-        id="menuPanel"
-    >
-
-        <nav class="menu-list">
-
-            <a
-                href="#cek-harga"
-                class="menu-item"
-            >
-
-                <div>
-
-                    <strong>
-                        Cek Harga Jual TBS
-                    </strong>
-
-                    <small>
-                        Lihat harga berdasarkan wilayah
-                    </small>
-
-                </div>
-
-            </a>
-
-
-            <a
-                href="#tentang"
-                class="menu-item"
-            >
-
-                <div>
-
-                    <strong>
-                        Tentang GunungKebun
-                    </strong>
-
-                    <small>
-                        Mengenal platform GunungKebun
-                    </small>
-
-                </div>
-
-            </a>
-
-
-            <a
-                href="#footer"
-                class="menu-item"
-            >
-
-                <div>
-
-                    <strong>
-                        Informasi
-                    </strong>
-
-                    <small>
-                        Informasi dan sumber data
-                    </small>
-
-                </div>
-
-            </a>
-
-        </nav>
-
-    </div>
-
+<div class="nav-links">
+<a class="active" href="#harga">Harga TBS</a>
+<a href="#tentang">Tentang Kami</a>
+</div>
+<a href="#harga" class="nav-cta">CEK HARGA <i>↗</i></a>
+<button class="menu-toggle" id="menuToggle" aria-label="Buka menu">☰</button>
+</nav>
+<div class="mobile-links" id="mobileLinks">
+<a href="#harga">Harga TBS</a>
+<a href="#tentang">Tentang Kami</a>
+</div>
 </header>
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
 <section class="hero">
-
-    <!-- FOTO GUNUNG -->
-    <div class="hero-image">
-        <img
-            src="gunungfoto.jpeg"
-            alt="Pemandangan Gunung"
-        >
-    </div>
-
-    <!-- TEKS HERO -->
-    <div class="container hero-inner">
-
-        <div class="hero-text">
-
-            <div class="small-label">
-                INFORMASI PERKEBUNAN SWADAYA
-            </div>
-
-            <h1>
-                Harga Jual TBS
-                <span>
-                    Di Setiap Wilayah
-                </span>
-            </h1>
-
-            <p>
-                Pantau harga jual Tandan Buah Segar (TBS)<br>
-                Kelapa Sawit
-                kapan saja Anda butuhkan<br>
-                di berbagai Wilayah di Indonesia
-            </p>
-
-        </div>
-
-    </div>
-
+<div class="hero-deco">
+<div class="hero-orb o1"></div><div class="hero-orb o2"></div>
+<div class="hero-giant">SUMATERA</div>
+<svg class="hero-leaf" width="220" height="220" viewBox="0 0 200 200" fill="none"><path d="M100 10 C 130 60, 150 110, 100 190 C 50 110, 70 60, 100 10Z" stroke="#0E2117" stroke-width="2"/><path d="M100 30 L100 170 M100 60 L135 50 M100 60 L65 50 M100 95 L140 85 M100 95 L60 85 M100 130 L130 122 M100 130 L70 122" stroke="#0E2117" stroke-width="1.5"/></svg>
+<div class="hero-img-card"><img src="https://images.unsplash.com/photo-1520262454473-a1a82276a574?q=80&w=600&auto=format&fit=crop" alt="Kebun sawit"><span>Kebun Sawit • Riau</span></div>
+</div>
+<div class="reveal visible">
+<div class="eyebrow"><span class="pulse"></span> Data per kecamatan <strong>SUMATERA</strong></div>
+<h1>PANTAU HARGA JUAL<span class="highlight">TBS SWADAYA</span> DI SETIAP WILAYAH.</h1>
+<p class="hero-copy">Pantau harga Tandan Buah Segar kelapa sawit terbaru hingga level kecamatan di Sumatera. Data jelas, mudah dibaca, untuk keputusan panen yang lebih tepat.</p>
+<div class="hero-meta">
+<span><span class="hero-avatars"><span style="background:#0E2117;color:#D9FF3D">I</span><span style="background:#149945;color:#fff">W</span><span style="background:#FF5C28;color:#fff">R</span></span> 100+ petani memantau </span>
+<span class="line"></span>
+<span>● UPDATE SETIAP HARI KERJA</span>
+</div>
+<div class="hero-badges"><span>◉ <span data-count="provinsi">8</span> Provinsi</span><span>◉ <span data-count="kabkota">32</span> Kab / Kota</span><span>◉ <span data-count="kecamatan">128</span> Kecamatan</span></div>
+</div>
+<div class="hero-stamp-wrap reveal visible">
+<div class="stamp-float">RATA-RATA WILAYAH</div>
+<aside class="hero-stamp" id="heroStamp" aria-label="Ringkasan harga rata-rata">
+<div class="stamp-shine"></div>
+<div class="stamp-top"><span>RATA-RATA SUMATERA</span><span id="stampDate">18.06.2024</span></div>
+<div class="stamp-price"><small>RP</small> <span id="stampNumber">3.184</span> <small>/ KG</small></div>
+<div class="stamp-change">↑ NAIK 1,4% DARI MINGGU LALU</div>
+<div class="stamp-spark">
+<svg viewBox="0 0 260 44" preserveAspectRatio="none"><defs><linearGradient id="lg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D9FF3D" stop-opacity=".5"/><stop offset="1" stop-color="#D9FF3D" stop-opacity="0"/></linearGradient></defs><path id="sparkFill" d="M0,34 L32,30 L65,32 L98,24 L130,26 L163,18 L196,20 L228,10 L260,12 L260,44 L0,44 Z" fill="url(#lg)"/><path id="sparkLine" d="M0,34 L32,30 L65,32 L98,24 L130,26 L163,18 L196,20 L228,10 L260,12" fill="none" stroke="#D9FF3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="260" cy="12" r="3.5" fill="#D9FF3D"/></svg>
+<div><span>SEN — MIN</span><span style="color:#D9FF3D">+ TREN NAIK</span></div>
+</div>
+</aside>
+<div class="stamp-shadow"></div>
+</div>
 </section>
-
-
-<!-- =====================================================
-     CEK HARGA JUAL TBS
-===================================================== -->
-
-<section
-    class="section"
-    id="cek-harga"
->
-
-    <div class="container">
-
-        <div class="section-header">
-
-            <div>
-
-
-                <h2>
-                    Pilih Wilayah
-                </h2>
-
-            </div>
-
-        </div>
-
-
-        <!-- SEARCH PANEL -->
-
-        <div class="search-panel">
-
-
-            <!-- PROVINSI -->
-
-            <div class="field">
-
-                <label for="provinsi">
-                    Provinsi
-                </label>
-
-                <select id="provinsi">
-
-
-                </select>
-
-            </div>
-
-
-            <!-- KABUPATEN -->
-
-            <div class="field">
-
-                <label for="kabupaten">
-                    Kabupaten / Kota
-                </label>
-
-                <select
-                    id="kabupaten"
-                    disabled
-                >
-
-                    <option value="">
-                        Pilih kabupaten
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <!-- KECAMATAN -->
-
-            <div class="field">
-
-                <label for="kecamatan">
-                    Kecamatan
-                </label>
-
-                <select
-                    id="kecamatan"
-                    disabled
-                >
-
-                    <option value="">
-                        Pilih kecamatan
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <!-- BUTTON -->
-
-            <button
-                type="button"
-                id="cekHarga"
-                class="button search-button"
-            >
-                Cek Harga
-            </button>
-
-        </div>
-
-
-        <!-- HASIL -->
-
-        <div
-            id="hasilHarga"
-            class="hasil-harga"
-        >
-
-            <div class="empty-state">
-
-                <strong>
-                    Belum ada wilayah yang dipilih
-                </strong>
-
-            </div>
-
-        </div>
-
-    </div>
-
+<section class="search-section" id="harga">
+<div class="search-inner reveal">
+<div class="search-grid">
+<div class="search-title">
+<small>Wilayah Sumatera</small>
+<h3>Mulai dari wilayah kebun Anda.</h3>
+<div class="wilayah-pills"><span>SUMATERA</span><span><span data-count="kabkota">32</span> KAB/KOTA</span><span><span data-count="kecamatan">128</span> KECAMATAN</span></div>
+</div>
+<form class="search-form" id="priceForm">
+<div class="field">
+<label for="province"><b>1</b> Provinsi</label>
+<div class="select-wrap">
+<select id="province" aria-label="Pilih provinsi">
+<option value="">Pilih provinsi</option>
+<option value="Aceh">Aceh</option>
+<option value="Sumatera Utara">Sumatera Utara</option>
+<option value="Sumatera Barat">Sumatera Barat</option>
+<option value="Riau">Riau</option>
+<option value="Jambi">Jambi</option>
+<option value="Sumatera Selatan">Sumatera Selatan</option>
+<option value="Bengkulu">Bengkulu</option>
+<option value="Lampung">Lampung</option>
+</select>
+</div>
+</div>
+<div class="field">
+<label for="regency"><b>2</b> Kabupaten / Kota</label>
+<div class="select-wrap">
+<select id="regency" aria-label="Pilih kabupaten atau kota" disabled>
+<option value="">Pilih kabupaten/kota</option>
+</select>
+</div>
+</div>
+<div class="field">
+<label for="district"><b>3</b> Kecamatan</label>
+<div class="select-wrap">
+<select id="district" aria-label="Pilih kecamatan" disabled>
+<option value="">Pilih kecamatan</option>
+</select>
+</div>
+</div>
+<button type="submit" class="search-btn">LIHAT HARGA <span>→</span></button>
+</form>
+</div>
+<div class="search-foot">
+<span><span class="hint-dot"></span>Harga berbeda di setiap kecamatan</span>
+<span><strong>● <span data-count="kecamatan">128</span></strong> KECAMATAN TERDATA DI SUMATERA</span>
+</div>
+</div>
 </section>
-
-
-<!-- =====================================================
-     TENTANG
-===================================================== -->
-
-<section
-    class="section section-gray"
-    id="tentang"
->
-
-    <div class="container">
-
-        <div class="about">
-
-            <div>
-
-                <div class="small-label">
-                    Kenali GunungKebun
-                </div>
-
-                <h2>
-                    Teman Petani dalam Mengetahui Harga Kebun<br>
-                    Perkebunan Swadaya
-                </h2>
-
-            </div>
-
-
-            <div class="about-text">
-
-                <p>
-                    GunungKebun.com merupakan platform informasi yang membantu
-                    petani kelapa sawit swadaya memperoleh informasi mengenai
-                    harga jual Tandan Buah Segar (TBS) di berbagai wilayah di
-                    Indonesia.
-                </p>
-
-                <p>
-                    Informasi harga disajikan berdasarkan wilayah kecamatan, sehingga
-                    petani dapat mengetahui gambaran harga TBS yang berlaku
-                    di wilayahnya.
-                </p>
-
-                <p>
-                    GunungKebun dikembangkan untuk membantu memberikan
-                    informasi harga yang lebih mudah diakses dan menjadi
-                    referensi bagi petani sebelum menjual hasil kebunnya.
-                </p>
-
-                <p>
-                    Sebagian data harga di GunungKebun diverifikasi langsung
-                    oleh tim kami, dan sebagian lagi berasal dari Partisipasi
-                    petani dan masyarakat serta pengepul di berbagai daerah. Jika anda tahu
-                    harga TBS terbaru di wilayahmu juga bisa ikut
-                    berkontribusi untuk melengkapi informasi harga TBB agar semakin
-                    lengkap dan akurat informasi yang bisa kami sajikan.
-                </p>
-
-                <a
-                    id="linkLaporTentang"
-                    href="#"
-                    target="_blank"
-                    rel="noopener"
-                    class="button button-primary about-lapor-button"
-                >
-                <img src="simbol'lapor'.png" alt="" class="button-icon">
-                    Setor Harga TBS Terkini
-                </a>
-
-
-                <div class="notice">
-
-                    <strong>
-                        Perlu Diketahui
-                    </strong>
-
-                    <p>
-                        Harga pada situs ini adalah data referensi 
-                        (baik hasil verifikasi maupun estimasi). 
-                        Harga transaksi sebenarnya di lapangan<br>
-                        dapat berbeda tergantung kondisi 
-                        masing-masing wilayah.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
+<main class="main">
+<div class="section-header reveal">
+<h2>HARGA TBS<br><span>HARI INI.</span></h2>
+<p><strong>● LIVE</strong><br>REFERENSI HARGA PER KG<br>PER KECAMATAN • 10–20 TAHUN</p>
+</div>
+<div class="price-layout">
+<section class="price-board reveal">
+<div class="board-top">
+<div class="board-location"><span class="board-dot"></span><div class="board-location-text"><strong id="boardDistrict">KEC. BANGKINANG KOTA</strong><small><span id="boardRegency">KAB. KAMPAR</span> • <span id="boardProvince">RIAU</span><em id="boardCode">· RIA</em></small></div></div>
+<div class="updated" id="boardUpdated">DIPERBARUI: 18 JUN 2024, 08:00 WIB</div>
+</div>
+<table class="price-table">
+<thead><tr><th>Usia Tanaman</th><th>Harga / Kg</th><th>Perubahan</th></tr></thead>
+<tbody id="priceBody">
+<tr><td><span class="age-badge">3</span>3 Tahun</td><td>Rp 2.798</td><td><span class="rise">↑ Rp 36</span></td></tr>
+<tr><td><span class="age-badge">4</span>4 Tahun</td><td>Rp 3.012</td><td><span class="rise">↑ Rp 39</span></td></tr>
+<tr class="best-row"><td><span class="age-badge">★</span>10–20 Tahun</td><td>Rp 3.245</td><td><span class="rise">↑ Rp 57</span></td></tr>
+<tr><td><span class="age-badge">21+</span>21 Tahun ke atas</td><td>Rp 3.102</td><td><span class="neutral">— Tetap</span></td></tr>
+</tbody>
+</table>
+<div class="board-footer"><span>DATA HARGA RESMI PEMERINTAH PROVINSI</span><a href="#">Lihat lengkap ↗</a><a class="board-report-link" href="https://docs.google.com/forms/d/e/1FAIpQLSdaSQlMi4PfVL7P0YOUx0GTjCRuZRtcQkw79fkKj1ogXmw0Lw/viewform?usp=header" target="_blank" rel="noopener">+ Setor harga di wilayah Anda</a></div>
 </section>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer id="footer">
-
-    <div class="container footer-inner">
-
-        <!-- KIRI -->
-        <div>  
-             GunungKebun.com
-        </div>
-
-        <!-- KANAN -->
-
-        <div class="footer-creator">
-
-                    <span class="creator-label">
-                    Dibuat oleh
-                    </span>
-
-            <div class="creator-profile">
-
-                    <img
-                    src="creator.jpg"
-                    alt="Creator GunungKebun"
-                    class="creator-photo"
-                >
-
-                <div class="creator-info">
-
-                        <strong>Aditya Subarna</strong>
-
-                        <a href="mailto:adityas.world14@gmail">
-                            Kontak@Gunungkebun.com
-                        <!-- kode wa ditempel disini-->
-                        
-                        <a href="https://wa.me/6282125017327"
-                        target="_blank"
-                        rel="noopener"
-                        class="wa-icon-link"
-                        aria-label="Chat WhatsApp"
-                    >
-                        <svg viewBox="0 0 32 32" width="13" height="20" fill="currentColor">
-                            <path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.738 5.47 2.032 7.77L0 32l8.428-2.212A15.9 15.9 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.09c-2.49 0-4.82-.703-6.797-1.92l-.487-.29-5.005 1.313 1.336-4.878-.317-.5A13.05 13.05 0 0 1 2.91 16C2.91 8.792 8.792 2.91 16 2.91S29.09 8.792 29.09 16 23.208 29.09 16 29.09zm7.16-9.78c-.392-.196-2.316-1.143-2.676-1.274-.36-.13-.622-.196-.884.196s-1.013 1.274-1.242 1.535c-.229.262-.458.294-.85.098-.392-.196-1.654-.61-3.15-1.945-1.164-1.038-1.95-2.32-2.178-2.712-.229-.392-.024-.604.172-.8.176-.176.392-.458.588-.687.196-.229.262-.392.392-.653.13-.262.065-.49-.033-.687-.098-.196-.884-2.13-1.212-2.918-.319-.766-.643-.663-.884-.675l-.753-.013c-.262 0-.687.098-1.047.49-.36.392-1.373 1.34-1.373 3.27s1.405 3.79 1.6 4.05c.196.262 2.767 4.226 6.706 5.925.937.404 1.668.646 2.238.827.94.299 1.797.257 2.474.156.755-.113 2.316-.947 2.643-1.86.327-.914.327-1.698.229-1.86-.098-.163-.36-.262-.752-.458z"/>
-                        </svg>
-                    </a>
-                        </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- TENGAH -->
-    <div class="footer-bottom">
-
-        © 2026 GunungKebun.com — Informasi Harga Jual TBS<br>
-        All right reserved
-
-    </div>
-
+<aside class="side-stack">
+<div class="info-card dark reveal">
+<div class="card-icon">◭</div>
+<div class="card-label">Pergerakan 7 hari</div>
+<div class="trend-value" id="trendValue">+ Rp 57 <small>/ KG</small></div>
+<p id="trendNote">Harga TBS di Kec. Bangkinang Kota, Kampar menunjukkan tren positif minggu ini.</p>
+<div class="mini-bars"><i></i><i></i><i></i><i></i><i></i></div>
+</div>
+<div class="info-card green reveal">
+<div class="card-icon">✦</div>
+<div class="card-label">Catatan untuk petani</div>
+<div class="trend-value" style="font-size:19px;letter-spacing:-.03em;">CEK SEBELUM JUAL.</div>
+<p style="opacity:.82">Bandingkan harga dan kualitas buah sebelum memilih pabrik tujuan.</p>
+</div>
+</aside>
+</div>
+<section class="guide reveal" id="panduan">
+<div class="guide-head">
+<div class="number">!</div>
+<div><h3>Harga yang baik dimulai dari informasi yang baik.</h3><p>PANDUAN SINGKAT UNTUK PETANI SAWIT</p></div>
+</div>
+<div class="steps">
+<article class="step"><div class="step-index">01 / PILIH WILAYAH</div><strong>Temukan harga lokal</strong><p>Pilih provinsi, kabupaten/kota, lalu kecamatan Anda untuk melihat acuan harga TBS terbaru di daerah kebun.</p><div class="step-num">01</div></article>
+<article class="step"><div class="step-index">02 / CEK USIA POHON</div><strong>Sesuaikan dengan kebun</strong><p>Harga TBS berbeda berdasarkan usia tanaman. Gunakan kelompok usia yang tepat.</p><div class="step-num">02</div></article>
+<article class="step"><div class="step-index">03 / BANDINGKAN &amp; JUAL</div><strong>Ambil keputusan mantap</strong><p>Gunakan informasi ini sebagai pegangan saat bernegosiasi dengan pengepul atau pabrik.</p><div class="step-num">03</div></article>
+</div>
+</section>
+</main>
+<footer id="tentang">
+<div class="footer-inner">
+<div>
+<a href="#" class="logo">
+  <!-- LOGO LAMA (versi footer): sama seperti di header -->
+  <img class="logo-mark-img" src="logoNEWgngkebun.png" alt="Logo GunungKebun" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+  <span class="logo-mark" style="display:none;">◈</span>
+  GUNUNG<em style="color:#D9FF3D">KEBUN</em>
+</a>
+<p class="footer-text"><strong>GunungKebun</strong> hadir untuk membantu petani sawit Indonesia mendapatkan informasi harga TBS yang terbuka dan mudah dipahami.
+Informasi harga disajikan berdasarkan wilayah kecamatan, sehingga petani dapat mengetahui gambaran harga TBS yang berlaku di wilayahnya.</p>
+</div>
+<div class="footer-links">
+<a href="#harga">Harga TBS</a>
+<a href="#panduan">Panduan Petani</a>
+<a href="#">Kebijakan Privasi</a>
+<a href="#">Hubungi Kami</a>
+</div>
+</div>
+<div class="copyright"><span>© 2026 GUNUNGKEBUN.COM — All Right Reserved | Aditya Subarna </span><span>● SISTEM AKTIF</span></div>
 </footer>
+<div class="toast" id="toast"><span class="toast-dot">✓</span><span id="toastText">Pilih provinsi terlebih dahulu.</span></div>
+<!-- TOMBOL SETOR HARGA TBS TERKINI: link ke Google Form pelaporan harga -->
+<a class="report-fab" id="reportFab" href="https://docs.google.com/forms/d/e/1FAIpQLSdaSQlMi4PfVL7P0YOUx0GTjCRuZRtcQkw79fkKj1ogXmw0Lw/viewform?usp=header" target="_blank" rel="noopener" aria-label="Setor harga TBS terkini">
+  <span class="fab-ico">+</span>
+  <span class="fab-label">Setor Harga <span class="fab-sub">TBS Terkini</span></span>
+</a>
+<script>
+const form=document.getElementById('priceForm');
+const province=document.getElementById('province');
+const regency=document.getElementById('regency');
+const district=document.getElementById('district');
+const toast=document.getElementById('toast');
+const toastText=document.getElementById('toastText');
+const menuToggle=document.getElementById('menuToggle');
+const mobileLinks=document.getElementById('mobileLinks');
+const boardDistrict=document.getElementById('boardDistrict');
+const boardRegency=document.getElementById('boardRegency');
+const boardProvince=document.getElementById('boardProvince');
+const boardCode=document.getElementById('boardCode');
+const boardUpdated=document.getElementById('boardUpdated');
+const priceBody=document.getElementById('priceBody');
+const trendValue=document.getElementById('trendValue');
+const trendNote=document.getElementById('trendNote');
+const siteHeader=document.getElementById('siteHeader');
 
-<!-- JAVASCRIPT -->
+/* =========================================================
+   SUMBER DATA HARGA TBS — GOOGLE SHEET (live)
+   Ganti URL ini kalau Anda deploy ulang Apps Script dan
+   dapat URL /exec yang baru.
+========================================================= */
+const URL_API_HARGA="https://script.google.com/macros/s/AKfycby7Neph2HMxlhaapyN42YR1pvqowOJ2zbQYBgPSgyM0ClF48KDniDRdolvHHeLP2U80/exec";
 
-<script src="gngkebun.js"></script>
+/* Hanya provinsi di daftar ini yang ditampilkan di dropdown,
+   walau sheet punya provinsi lain (mis. Kepulauan Bangka Belitung).
+   Tambah/hapus nama provinsi di sini kalau mau ubah cakupan. */
+const ALLOWED_PROVINCES=["Aceh","Sumatera Utara","Sumatera Barat","Riau","Jambi","Sumatera Selatan","Bengkulu","Lampung"];
 
+const PROV_CODE={"Aceh":"ACEH","Sumatera Utara":"SUMUT","Sumatera Barat":"SUMBAR","Riau":"RIA","Jambi":"JBI","Sumatera Selatan":"SUMSEL","Bengkulu":"BKL","Lampung":"LPG"};
+
+/* =========================================================
+   ESTIMASI HARGA PER USIA TANAMAN
+   Sheet cuma punya 1 harga per kecamatan — dianggap sebagai
+   harga usia 10-20 tahun (puncak produktivitas). Usia lain
+   dihitung sebagai persentase dari situ. Ubah angka % di
+   bawah kapan saja sesuai kebijakan Anda.
+========================================================= */
+const AGES=[["3","3 Tahun",0.86,true],["4","4 Tahun",0.90,true],["★","10–20 Tahun",1.00,false],["21+","21 Tahun ke atas",0.97,true]];
+
+let hargaTBS={};
+let statusDataHarga="memuat"; // memuat | siap | gagal
+
+function fmt(n){return "Rp "+Math.round(n).toLocaleString("id-ID");}
+
+function muatDataHarga(){
+  statusDataHarga="memuat";
+  return fetch(URL_API_HARGA)
+    .then(res=>{ if(!res.ok) throw new Error("Status "+res.status); return res.json(); })
+    .then(json=>{
+      hargaTBS=json;
+      statusDataHarga="siap";
+      populateProvince();
+      updateWilayahCounts();
+    })
+    .catch(err=>{
+      console.error("Gagal memuat data harga TBS:",err);
+      statusDataHarga="gagal";
+      showToast("Gagal memuat data harga dari server. Coba muat ulang halaman.",false);
+    });
+}
+
+function populateProvince(){
+  const existing=province.value;
+  province.innerHTML='<option value="">Pilih provinsi</option>';
+  ALLOWED_PROVINCES.filter(p=>hargaTBS[p]).forEach(p=>{
+    const o=document.createElement('option');o.value=p;o.textContent=p;province.appendChild(o);
+  });
+  if(existing&&hargaTBS[existing]){province.value=existing;}
+}
+
+function updateWilayahCounts(){
+  const provs=ALLOWED_PROVINCES.filter(p=>hargaTBS[p]);
+  let kabSet=new Set(), kecCount=0;
+  provs.forEach(p=>{
+    Object.keys(hargaTBS[p]).forEach(kab=>{
+      kabSet.add(p+"|"+kab);
+      kecCount+=Object.keys(hargaTBS[p][kab]).length;
+    });
+  });
+  document.querySelectorAll('[data-count="provinsi"]').forEach(el=>el.textContent=provs.length);
+  document.querySelectorAll('[data-count="kabkota"]').forEach(el=>el.textContent=kabSet.size);
+  document.querySelectorAll('[data-count="kecamatan"]').forEach(el=>el.textContent=kecCount);
+}
+
+function getDetail(prov,kab,kec){
+  const row=hargaTBS[prov]&&hargaTBS[prov][kab]&&hargaTBS[prov][kab][kec];
+  if(!row)return null;
+  const base=row.harga;
+  return {
+    prices:AGES.map(a=>base*a[2]),
+    tanggal:row.tanggal,
+    status:row.status,
+    sumber:row.sumber
+  };
+}
+let toastTimer;
+function showToast(msg,ok=true){
+toastText.textContent=msg;
+const d=toast.querySelector('.toast-dot');
+d.textContent=ok?"✓":"!";
+d.style.background=ok?"#D9FF3D":"#FF5C28";
+d.style.color=ok?"#0E2117":"#fff";
+toast.classList.add('show');
+clearTimeout(toastTimer);
+toastTimer=setTimeout(()=>toast.classList.remove('show'),2600);
+}
+function animateCount(el,from,to,prefix=""){
+const dur=700,start=performance.now();
+function tick(t){
+const p=Math.min(1,(t-start)/dur),e=1-Math.pow(1-p,3);
+const v=Math.round(from+(to-from)*e);
+el.textContent=prefix+v.toLocaleString("id-ID");
+if(p<1)requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+}
+function formatTanggal(iso){
+  if(!iso)return "-";
+  const months=["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Agu","Sep","Okt","Nov","Des"];
+  const d=new Date(iso+"T00:00:00");
+  if(isNaN(d))return iso;
+  return d.getDate()+" "+months[d.getMonth()]+" "+d.getFullYear();
+}
+function nowWIB(){
+const d=new Date();
+const months=["JAN","FEB","MAR","APR","MEI","JUN","JUL","AGU","SEP","OKT","NOV","DES"];
+const hh=String(d.getHours()).padStart(2,"0"),mm=String(d.getMinutes()).padStart(2,"0");
+return "DIPERBARUI: "+String(d.getDate()).padStart(2,"0")+" "+months[d.getMonth()]+" "+d.getFullYear()+", "+hh+":"+mm+" WIB";
+}
+function populateRegency(){
+regency.innerHTML='<option value="">Pilih kabupaten/kota</option>';
+district.innerHTML='<option value="">Pilih kecamatan</option>';
+district.disabled=true;
+const prov=province.value;
+if(!prov||!hargaTBS[prov]){regency.disabled=true;return;}
+Object.keys(hargaTBS[prov]).forEach(kab=>{
+const o=document.createElement('option');o.value=kab;o.textContent=kab;regency.appendChild(o);
+});
+regency.disabled=false;
+}
+function populateDistrict(){
+district.innerHTML='<option value="">Pilih kecamatan</option>';
+const prov=province.value,kab=regency.value;
+if(!prov||!kab||!hargaTBS[prov]||!hargaTBS[prov][kab]){district.disabled=true;return;}
+Object.keys(hargaTBS[prov][kab]).forEach(kec=>{
+const o=document.createElement('option');o.value=kec;o.textContent="Kec. "+kec;district.appendChild(o);
+});
+district.disabled=false;
+}
+function renderBoard(prov,kab,kec,scroll=true){
+const d=getDetail(prov,kab,kec);
+if(!d){showToast('Data untuk wilayah ini belum tersedia di sheet.',false);return;}
+boardDistrict.textContent="KEC. "+kec.toUpperCase();
+boardRegency.textContent="KAB. "+kab.toUpperCase();
+boardProvince.textContent=prov.toUpperCase();
+boardCode.textContent="· "+(PROV_CODE[prov]||"");
+boardUpdated.textContent="DATA: "+formatTanggal(d.tanggal)+" · "+(d.status||"").toUpperCase();
+priceBody.innerHTML=AGES.map((a,i)=>{
+const isEstimate=a[3];
+const badge=isEstimate?'<span class="neutral">Estimasi</span>':'<span class="rise">Data Asli</span>';
+const cls=i===2?' class="best-row"':'';
+return '<tr'+cls+'><td><span class="age-badge">'+a[0]+'</span>'+a[1]+'</td><td data-price="'+Math.round(d.prices[i])+'">'+fmt(d.prices[i])+'</td><td>'+badge+'</td></tr>';
+}).join('');
+priceBody.querySelectorAll('tr').forEach((r,idx)=>{
+r.style.opacity="0";r.style.transform="translateY(8px)";
+setTimeout(()=>{r.style.transition=".4s";r.style.opacity="1";r.style.transform="none";},idx*80);
+const td=r.querySelectorAll('td')[1];
+animateCount(td,d.prices[idx]*0.97,d.prices[idx],"Rp ");
+});
+trendValue.innerHTML=(d.status||'Estimasi');
+trendNote.innerHTML='Sumber: '+(d.sumber||'-')+'<br>Kec. '+kec+', '+kab+' • Data '+formatTanggal(d.tanggal);
+const board=document.querySelector('.price-board');
+board.classList.remove('flash');void board.offsetWidth;board.classList.add('flash');
+if(scroll){board.scrollIntoView({behavior:'smooth',block:'center'});}
+}
+province.addEventListener('change',()=>{
+populateRegency();
+if(province.value){showToast(province.value+' dipilih — lanjut pilih kabupaten/kota.',true);}
+});
+regency.addEventListener('change',()=>{
+populateDistrict();
+if(regency.value){showToast(regency.value+' dipilih — lanjut pilih kecamatan.',true);}
+});
+district.addEventListener('change',()=>{
+if(province.value&&regency.value&&district.value){
+renderBoard(province.value,regency.value,district.value,false);
+showToast('Menampilkan harga Kec. '+district.value+', '+regency.value+'.',true);
+}
+});
+form.addEventListener('submit',function(e){
+e.preventDefault();
+if(!province.value){showToast('Pilih provinsi terlebih dahulu.',false);province.focus();return;}
+if(!regency.value){showToast('Pilih kabupaten/kota terlebih dahulu.',false);regency.focus();return;}
+if(!district.value){showToast('Pilih kecamatan terlebih dahulu.',false);district.focus();return;}
+renderBoard(province.value,regency.value,district.value,true);
+showToast('Menampilkan harga Kec. '+district.value+', '+regency.value+'.',true);
+});
+menuToggle.addEventListener('click',function(){
+mobileLinks.classList.toggle('open');
+menuToggle.textContent=mobileLinks.classList.contains('open')?'×':'☰';
+});
+mobileLinks.querySelectorAll('a').forEach(link=>{
+link.addEventListener('click',()=>{mobileLinks.classList.remove('open');menuToggle.textContent='☰';});
+});
+const progress=document.getElementById('scrollProgress');
+window.addEventListener('scroll',()=>{
+const h=document.documentElement;
+const pct=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
+progress.style.width=pct+"%";
+if(h.scrollTop>10){siteHeader.classList.add('scrolled');}else{siteHeader.classList.remove('scrolled');}
+},{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal:not(.visible)').forEach(el=>io.observe(el));
+(function(){
+const line=document.getElementById('sparkLine');
+try{
+const len=line.getTotalLength();
+line.style.strokeDasharray=len;line.style.strokeDashoffset=len;
+requestAnimationFrame(()=>{line.style.transition="stroke-dashoffset 1.6s ease .3s";line.style.strokeDashoffset="0";});
+}catch(err){}
+const sd=document.getElementById('stampDate');
+const d=new Date();
+sd.textContent=String(d.getDate()).padStart(2,"0")+"."+String(d.getMonth()+1).padStart(2,"0")+"."+d.getFullYear();
+})();
+priceBody.addEventListener('click',e=>{
+const tr=e.target.closest('tr');if(!tr)return;
+const tds=tr.querySelectorAll('td');
+const name=tds[0].textContent.trim();
+const price=tds[1].textContent.trim();
+showToast(name+" — "+price+"/kg",true);
+});
+function updateStampAverage(){
+  const provs=ALLOWED_PROVINCES.filter(p=>hargaTBS[p]);
+  let sum=0,count=0;
+  provs.forEach(p=>Object.values(hargaTBS[p]).forEach(kabObj=>Object.values(kabObj).forEach(row=>{sum+=row.harga;count++;})));
+  const avg=count?Math.round(sum/count):0;
+  const el=document.getElementById('stampNumber');
+  animateCount(el,avg*0.9,avg,"");
+}
+(function initDefault(){
+  boardUpdated.textContent="MEMUAT DATA...";
+  muatDataHarga().then(()=>{
+    updateStampAverage();
+    const provs=ALLOWED_PROVINCES.filter(p=>hargaTBS[p]);
+    const firstProv=provs.find(p=>Object.keys(hargaTBS[p]).length)||provs[0];
+    if(!firstProv){boardUpdated.textContent="DATA BELUM TERSEDIA";return;}
+    province.value=firstProv;
+    populateRegency();
+    const firstKab=Object.keys(hargaTBS[firstProv])[0];
+    regency.value=firstKab;
+    populateDistrict();
+    const firstKec=Object.keys(hargaTBS[firstProv][firstKab])[0];
+    district.value=firstKec;
+    renderBoard(firstProv,firstKab,firstKec,false);
+  });
+})();
+(function tilt(){
+const stamp=document.getElementById('heroStamp');
+if(!stamp||window.matchMedia('(max-width:920px)').matches)return;
+const wrap=stamp.parentElement;
+wrap.addEventListener('mousemove',e=>{
+const r=wrap.getBoundingClientRect();
+const x=(e.clientX-r.left)/r.width-.5;
+const y=(e.clientY-r.top)/r.height-.5;
+stamp.style.transform='perspective(900px) rotateY('+(x*8)+'deg) rotateX('+(-y*8)+'deg) translateY(-3px)';
+});
+wrap.addEventListener('mouseleave',()=>{stamp.style.transform='rotate(1.2deg)';});
+})();
+</script>
 </body>
 </html>
