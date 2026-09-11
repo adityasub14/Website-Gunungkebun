@@ -95,6 +95,15 @@ header.scrolled{box-shadow:0 12px 32px -16px rgba(14,33,23,.25);background:rgba(
 .hero-img-card img{width:100%;height:86px;object-fit:cover;border-radius:10px;display:block;filter:saturate(1.15) contrast(1.05)}
 .hero-img-card span{display:block;font:600 8px var(--font-mono);letter-spacing:.08em;color:var(--forest);padding:7px 6px 4px;text-transform:uppercase}
 .hero-img-card::after{content:"SUMATERA";position:absolute;top:12px;left:12px;background:rgba(14,33,23,.82);backdrop-filter:blur(6px);color:var(--lime);font:700 7.5px var(--font-mono);letter-spacing:.1em;padding:4px 7px;border-radius:99px;border:1px solid rgba(217,255,61,.4)}
+/* Versi bingkai foto khusus tampilan HP (ditambahkan agar foto tetap kelihatan di layar sempit) */
+.hero-img-card-mobile{display:none}
+@media (max-width:920px){
+.hero-img-card-mobile{display:flex;align-items:center;gap:10px;margin-top:16px;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:var(--sh-sm)}
+.hero-img-card-mobile img{width:64px;height:64px;object-fit:cover;border-radius:10px;flex-shrink:0;filter:saturate(1.15) contrast(1.05)}
+.hero-img-card-mobile .cap{display:flex;flex-direction:column;gap:4px}
+.hero-img-card-mobile .cap b{font:700 8px var(--font-mono);letter-spacing:.1em;color:var(--lime);background:var(--forest);display:inline-block;padding:3px 7px;border-radius:99px;width:fit-content}
+.hero-img-card-mobile .cap span{font:600 11px var(--font-sans);color:var(--forest)}
+}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--forest);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:8px 14px 8px 10px;box-shadow:var(--sh-xs)}
 .eyebrow strong{background:var(--forest);color:var(--lime);font-size:8.5px;padding:3px 7px;border-radius:99px;letter-spacing:.08em}
 .pulse{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(20,153,69,.15);animation:pulse 1.8s infinite;flex-shrink:0}
@@ -317,7 +326,7 @@ h1{font-size:clamp(33px,9vw,50px)}
 <div class="ticker-track" id="tickerTrack">
 <div class="ticker-group">
 <span><span class="dot"></span><b>HARGA TBS Swadaya</b></span><span class="sep">/</span>
-<span>Data per kecamatan • Diperbarui hari kerja</span><span class="sep">/</span>
+<span class="sep">/</span>
 <span>Riau: <b>Rp 3.245/kg</b></span><span class="sep">/</span>
 <span>Sumatera Utara: <b>Rp 3.110/kg</b></span><span class="sep">/</span>
 <span>Sumatera Barat: <b>Rp 2.998/kg</b></span><span class="sep">/</span>
@@ -325,7 +334,7 @@ h1{font-size:clamp(33px,9vw,50px)}
 </div>
 <div class="ticker-group" aria-hidden="true">
 <span><span class="dot"></span><b>HARGA TBS SUMATERA</b></span><span class="sep">/</span>
-<span>Data per kecamatan • Diperbarui hari kerja</span><span class="sep">/</span>
+<span class="sep">/</span>
 <span>Riau: <b>Rp 3.245/kg</b></span><span class="sep">/</span>
 <span>Sumatera Utara: <b>Rp 3.110/kg</b></span><span class="sep">/</span>
 <span>Sumatera Barat: <b>Rp 2.998/kg</b></span><span class="sep">/</span>
@@ -365,7 +374,6 @@ h1{font-size:clamp(33px,9vw,50px)}
 <!-- akhir bagian foto Kebun Sawit ...-->
 </div>
 <div class="reveal visible">
-<div class="eyebrow"><span class="pulse"></span> Data per kecamatan <strong>SUMATERA</strong></div>
 <h1>PANTAU HARGA JUAL<span class="highlight">TBS SWADAYA</span><br> DI SETIAP WILAYAH</h1>
 <p class="hero-copy">Pantau harga Tandan Buah Segar kelapa sawit (TBS) kapan saja Anda butuhkan di berbagai Wilayah di Indonesia Data jelas, mudah dibaca, untuk keputusan panen yang lebih tepat</p>
 <div class="hero-meta">
@@ -374,6 +382,8 @@ h1{font-size:clamp(33px,9vw,50px)}
 <span>● UPDATE DI HARI KERJA</span>
 </div>
 <div class="hero-badges"><span>◉ <span data-count="provinsi">8</span> Provinsi</span><span>◉ <span data-count="kabkota">32</span> Kab / Kota</span><span>◉ <span data-count="kecamatan">128</span> Kecamatan</span></div>
+<!-- versi bingkai foto khusus HP -->
+<div class="hero-img-card-mobile"><img src="tandan.jpg" alt="Kebun sawit"><div class="cap"><b>SUMATERA</b><span>Kebun Sawit • Sekernan-Muaro Jambi</span></div></div>
 </div>
 <div class="hero-stamp-wrap reveal visible">
 <div class="stamp-float">RATA-RATA WILAYAH</div>
@@ -464,7 +474,7 @@ h1{font-size:clamp(33px,9vw,50px)}
 <div class="info-card dark reveal">
 <div class="card-icon">◭</div>
 <div class="card-label">Sumber Data</div>
-<div class="trend-value" id="trendValue" style="font-size:18px;line-height:1.25;">Loading…</div>
+<div class="trend-value" id="trendValue" style="font-size:18px;line-height:1.25;">Pilih wilayah</div>
 <p id="trendNote">Menunggu data wilayah dipilih.</p>
 <div class="mini-bars"><i></i><i></i><i></i><i></i><i></i></div>
 </div>
@@ -533,11 +543,7 @@ const trendNote=document.getElementById('trendNote');
 const siteHeader=document.getElementById('siteHeader');
 
 /* =========================================================
-   RENDER TICKER OTOMATIS
-   TICKER_PROVINCES: daftar provinsi yang ditampilkan di bar
-   berjalan paling atas beserta urutannya.
-   urutan nama provinsi di sini — nama
-   harus sama persis dengan yang ada di ALLOWED_PROVINCES.
+   RENDER TICKER
 ========================================================= */
 const TICKER_PROVINCES=["Riau","Sumatera Utara","Sumatera Barat","Jambi"];
 
@@ -558,7 +564,7 @@ function renderTicker(){
   }).filter(Boolean);
   if(!items.length)return; // data belum ada, biarkan fallback statis tetap tampil
   const head="<span><span class=\"dot\"></span><b>HARGA TBS Swadaya</b></span><span class=\"sep\">/</span>"+
-             "<span>Data per kecamatan • Diperbarui hari kerja</span><span class=\"sep\">/</span>";
+             "<span class=\"sep\">/</span>";
   const group=head+items.join("");
   track.innerHTML=
     "<div class=\"ticker-group\">"+group+"</div>"+
@@ -571,7 +577,7 @@ const URL_API_HARGA="https://script.google.com/macros/s/AKfycby7Neph2HMxlhaapyN4
 /* Hanya provinsi di daftar ini yang ditampilkan di dropdown,
    walau sheet punya provinsi lain (mis. Kepulauan Bangka Belitung).
    Tambah/hapus nama provinsi di sini kalau mau ubah cakupan. */
-const ALLOWED_PROVINCES=["Aceh","Sumatera Utara","Sumatera Barat","Riau","Jambi","Sumatera Selatan","Bengkulu","Lampung"];
+const ALLOWED_PROVINCES=["Aceh","Sumatera Utara","Sumatera Barat","Riau","Jambi","Sumatera Selatan","Bengkulu","Lampung","Kalimantan Barat","Kalimantan Tengah","Kalimantan Timur","Kepulauan Bangka Belitung"];
 
 const PROV_CODE={"Aceh":"ACEH","Sumatera Utara":"SUMUT","Sumatera Barat":"SUMBAR","Riau":"RIA","Jambi":"JBI","Sumatera Selatan":"SUMSEL","Bengkulu":"BKL","Lampung":"LPG"};
 
@@ -786,16 +792,8 @@ function updateStampAverage(){
     updateStampAverage();
     renderTicker();
     const provs=ALLOWED_PROVINCES.filter(p=>hargaTBS[p]);
-    const firstProv=provs.find(p=>Object.keys(hargaTBS[p]).length)||provs[0];
-    if(!firstProv){boardUpdated.textContent="DATA BELUM TERSEDIA";return;}
-    province.value=firstProv;
-    populateRegency();
-    const firstKab=Object.keys(hargaTBS[firstProv])[0];
-    regency.value=firstKab;
-    populateDistrict();
-    const firstKec=Object.keys(hargaTBS[firstProv][firstKab])[0];
-    district.value=firstKec;
-    renderBoard(firstProv,firstKab,firstKec,false);
+    if(!provs.length){boardUpdated.textContent="DATA BELUM TERSEDIA";return;}
+    boardUpdated.textContent="PILIH WILAYAH DI ATAS UNTUK MELIHAT HARGA";
   });
 })();
 (function tilt(){
