@@ -852,6 +852,7 @@ function startStampCarousel(){
     updateStampAverage();
     startStampCarousel();
     renderTicker();
+    return;
     const provs=ALLOWED_PROVINCES.filter(p=>hargaTBS[p]);
     const firstProv=provs.find(p=>Object.keys(hargaTBS[p]).length)||provs[0];
     if(!firstProv){boardUpdated.textContent="DATA BELUM TERSEDIA";return;}
