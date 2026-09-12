@@ -94,9 +94,9 @@ header.scrolled{box-shadow:0 12px 32px -16px rgba(14,33,23,.25);background:rgba(
 .hero-orb.o1{width:420px;height:420px;background:radial-gradient(circle, rgba(217,255,61,.55), transparent 70%);top:-120px;right:-80px}
 .hero-orb.o2{width:360px;height:360px;background:radial-gradient(circle, rgba(20,153,69,.18), transparent 70%);bottom:-120px;left:-100px}
 .hero-leaf{position:absolute;right:36%;top:10px;opacity:.07;transform:rotate(12deg)}
-.hero-img-card{position:absolute;right:-8px;top:-6px;width:148px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:6px;box-shadow:var(--sh-md);transform:rotate(6deg);overflow:hidden}
+.hero-img-card{position:absolute;right:-8px;top:-124px;width:148px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:6px;box-shadow:var(--sh-md);transform:rotate(6deg);overflow:hidden;z-index:4;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .hero-img-card img{width:100%;height:86px;object-fit:cover;border-radius:10px;display:block;filter:saturate(1.15) contrast(1.05)}
-.hero-img-card span{display:block;font:600 8px var(--font-mono);letter-spacing:.08em;color:var(--forest);padding:7px 6px 4px;text-transform:uppercase}
+.hero-img-card span{display:block;font:600 8px var(--font-mono);letter-spacing:.08em;color:var(--forest);padding:7px 6px 4px;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .hero-img-card::after{content:"SUMATERA";position:absolute;top:12px;left:12px;background:rgba(14,33,23,.82);backdrop-filter:blur(6px);color:var(--lime);font:700 7.5px var(--font-mono);letter-spacing:.1em;padding:4px 7px;border-radius:99px;border:1px solid rgba(217,255,61,.4)}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--forest);font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:8px 14px 8px 10px;box-shadow:var(--sh-xs)}
 .eyebrow strong{background:var(--forest);color:var(--lime);font-size:8.5px;padding:3px 7px;border-radius:99px;letter-spacing:.08em}
@@ -277,13 +277,14 @@ footer::before{content:"GUNUNGKEBUN";position:absolute;bottom:-18px;left:50%;tra
 .search-title{flex:none}
 .search-form{grid-template-columns:1fr 1fr 1fr}
 .search-btn{grid-column:1/-1;width:100%}
-.hero-img-card{display:none}
 }
 @media (max-width:920px){
 .hero{grid-template-columns:1fr;gap:28px;padding:40px 20px 26px}
 h1{font-size:clamp(33px,9vw,50px)}
-.hero-stamp-wrap{justify-self:start;width:min(340px,100%)}
+.hero-stamp-wrap{justify-self:start;width:min(340px,100%);margin-top:104px}
 .hero-stamp{transform:rotate(0)}
+.hero-img-card{top:-96px;right:10px;width:126px}
+.hero-img-card img{height:56px}
 .price-layout{grid-template-columns:1fr}
 .side-stack{grid-template-columns:1fr 1fr}
 .steps{grid-template-columns:1fr}
@@ -367,9 +368,6 @@ h1{font-size:clamp(33px,9vw,50px)}
 <div class="hero-deco">
 <div class="hero-orb o1"></div><div class="hero-orb o2"></div>
 <svg class="hero-leaf" width="220" height="220" viewBox="0 0 200 200" fill="none"><path d="M100 10 C 130 60, 150 110, 100 190 C 50 110, 70 60, 100 10Z" stroke="#0E2117" stroke-width="2"/><path d="M100 30 L100 170 M100 60 L135 50 M100 60 L65 50 M100 95 L140 85 M100 95 L60 85 M100 130 L130 122 M100 130 L70 122" stroke="#0E2117" stroke-width="1.5"/></svg>
-<!-- GANTI FOTO DI SINI:  -->
-<div class="hero-img-card"><img src="tandan.jpg" alt="Kebun sawit"><span>Kebun Sawit • Sekernan-Muaro Jambi</span></div>
-<!-- akhir bagian foto Kebun Sawit ...-->
 </div>
 <div class="reveal visible">
 <div class="eyebrow"><span class="pulse"></span> Data per kecamatan <strong>SUMATERA</strong></div>
@@ -383,6 +381,9 @@ h1{font-size:clamp(33px,9vw,50px)}
 <div class="hero-badges"><span>◉ <span data-count="provinsi">8</span> Provinsi</span><span>◉ <span data-count="kabkota">32</span> Kab / Kota</span><span>◉ <span data-count="kecamatan">128</span> Kecamatan</span></div>
 </div>
 <div class="hero-stamp-wrap reveal visible">
+<!-- GANTI FOTO DI SINI: -->
+<div class="hero-img-card"><img src="tandan.jpg" alt="Kebun sawit"><span>TBS• Muaro Jambi</span></div>
+<!-- akhir bagian foto Kebun Sawit -->
 <div class="stamp-float">RATA-RATA WILAYAH</div>
 <aside class="hero-stamp" id="heroStamp" aria-label="Ringkasan harga rata-rata">
 <div class="stamp-shine"></div>
@@ -524,7 +525,7 @@ Informasi harga disajikan berdasarkan wilayah kecamatan, sehingga petani dapat m
 </div>
 <div class="copyright"><span>© 2026 GUNUNGKEBUN.COM — All Right Reserved | Aditya Subarna - Creator </span><span>Hubungi Kami team@gunungkebun.com</span><span>● SISTEM AKTIF</span></div>
 </footer>
-<div class="toast" id="toast"><span class="toast-dot">✓</span><span id="toastText">Pilih provinsi</span></div>
+<div class="toast" id="toast"><span class="toast-dot">✓</span><span id="toastText">Pilih provinsi terlebih dahulu.</span></div>
 <!-- SETOR HARGA JUAL TBS TERKINI: ke Form pelaporan harga -->
 <a class="report-fab" id="reportFab" href="https://docs.google.com/forms/d/e/1FAIpQLSdaSQlMi4PfVL7P0YOUx0GTjCRuZRtcQkw79fkKj1ogXmw0Lw/viewform?usp=header" target="_blank" rel="noopener" aria-label="Setor harga TBS terkini">
   <span class="fab-ico">+</span>
@@ -602,7 +603,7 @@ const URL_API_HARGA="https://script.google.com/macros/s/AKfycby7Neph2HMxlhaapyN4
 /* Hanya provinsi di daftar ini yang ditampilkan di dropdown,
    walau sheet punya provinsi lain (mis. Kepulauan Bangka Belitung).
    Tambah/hapus nama provinsi di sini kalau mau ubah cakupan. */
-const ALLOWED_PROVINCES=["Aceh","Sumatera Utara","Sumatera Barat","Riau","Jambi","Sumatera Selatan","Bengkulu","Lampung"];
+const ALLOWED_PROVINCES=["Aceh","Sumatera Utara","Sumatera Barat","Riau","Jambi","Sumatera Selatan","Kepulauan Bangka Belitung","Bengkulu","Lampung","Kalimantan Barat","Kalimantan Tengah","Kalimantan Timur"];
 /* Dipakai khusus untuk kartu "Rata-rata Kalimantan" di hero (belum masuk dropdown pilih wilayah) */
 const KALIMANTAN_PROVINCES=["Kalimantan Barat","Kalimantan Tengah","Kalimantan Timur"];
 
