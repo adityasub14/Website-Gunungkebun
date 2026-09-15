@@ -326,12 +326,19 @@ h1{font-size:clamp(33px,9vw,50px)}
 <div class="ticker-track" id="tickerTrack">
 <div class="ticker-group">
 <span><span class="dot"></span><b>HARGA TBS Swadaya</b></span><span class="sep">/</span>
-<span>Data per kecamatan • Diperbarui hari kerja</span><span class="sep">/</span>
 <span>Riau: <b>Rp 3.245/kg</b></span><span class="sep">/</span>
 <span>Sumatera Utara: <b>Rp 3.110/kg</b></span><span class="sep">/</span>
 <span>Sumatera Barat: <b>Rp 2.998/kg</b></span><span class="sep">/</span>
 <span>Sumatera Selatan: <b>Rp 3.340/kg</b></span><span class="sep">/</span>
-<span>Jambi: <b>Rp 3.025/kg</b></span><span class="sep">/</span>
+<span>Jambi: <b>Rp 3.325/kg</b></span><span class="sep">/</span>
+<span>Bengkulu: <b>Rp.2.900/kg</b></span><span class="sep">/</span>
+<span>Lampung: <b>Rp 2 950/kg</b></span><span class="sep">/</span>
+<span>Kepulauan Bangka Balitung: <b>Rp.3.150</b></span><span class="sep">/</span>
+<span>Kalimantan Barat: <b>Rp.3.313</b></span><span class="sep">/</span>
+<span>Kalimantan Tengah: <b>Rp.3.140</b></span><span class="sep">/</span>
+<span>Kalimantan Timur: <b>Rp.2.927</b></span><span class="sep">/</span>
+<span>Kalimantan Selatan: <b>Rp.2.970</b></span><span class="sep">/</span>
+<span>Kalimantan Utara: <b>Rp.2.950</b></span><span class="sep">/</span>
 </div>
 <div class="ticker-group" aria-hidden="true">
 <span><span class="dot"></span><b>HARGA TBS SUMATERA</b></span><span class="sep">/</span>
@@ -339,7 +346,16 @@ h1{font-size:clamp(33px,9vw,50px)}
 <span>Riau: <b>Rp 3.245/kg</b></span><span class="sep">/</span>
 <span>Sumatera Utara: <b>Rp 3.110/kg</b></span><span class="sep">/</span>
 <span>Sumatera Barat: <b>Rp 2.998/kg</b></span><span class="sep">/</span>
-<span>Jambi: <b>Rp 3.450/kg</b></span><span class="sep">/</span>
+<span>Jambi: <b>Rp 3.325/kg</b></span><span class="sep">/</span>
+<span>Bengkulu: <b>Rp.2.900/kg</b></span><span class="sep">/</span>
+<span>Lampung: <b>Rp 2 950/kg</b></span><span class="sep">/</span>
+<span>Kepulauan Bangka Balitung: <b>Rp.3.150</b></span><span class="sep">/</span>
+<span>Kalimantan Barat: <b>Rp.3.313</b></span><span class="sep">/</span>
+<span>Kalimantan Tengah: <b>Rp.3.140</b></span><span class="sep">/</span>
+<span>Kalimantan Timur: <b>Rp.2.927</b></span><span class="sep">/</span>
+<span>Kalimantan Selatan: <b>Rp.2.970</b></span><span class="sep">/</span>
+<span>Kalimantan Utara: <b>Rp.2.950</b></span><span class="sep">/</span>
+</div>
 </div>
 </div>
 </div>
@@ -348,7 +364,6 @@ h1{font-size:clamp(33px,9vw,50px)}
 <div class="scroll-progress" id="scrollProgress"></div>
 <nav class="nav">
 <a href="#" class="logo" aria-label="GunungKebun beranda">
-  <!-- LOGO LAMA: ganti "logo-lama.png"-->
   <img class="logo-mark-img" src="logoNEWgngkebun.png" alt="Logo GunungKebun" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
   <span class="logo-mark" style="display:none;">◈</span>
   GUNUNG<em>KEBUN</em>
@@ -574,7 +589,7 @@ const siteHeader=document.getElementById('siteHeader');
    RENDER TICKER OTOMATIS
    TICKER_PROVINCES:
 ========================================================= */
-const TICKER_PROVINCES=["Riau","Sumatera Utara","Sumatera Barat","Jambi"];
+const TICKER_PROVINCES=["Riau","Sumatera Utara","Sumatera Barat","Jambi","Bengkulu","Lampung","Kepulauan Bangka Belitung","Kalimantan Barat","Kalimantan Tengah","Kalimantan Timur","Kalimantan Selatan","Kalimantan Utara"];
 
 function hitungRataProvinsi(prov){
   if(!hargaTBS[prov])return null;
